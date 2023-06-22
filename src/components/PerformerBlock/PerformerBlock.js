@@ -1,4 +1,5 @@
 import React from 'react';
+import css from "../PerformerBlock/PerformerBlock.module.css";
 // public string Title { get; set; } = null!;
 //
 // public string? Description { get; set; }
@@ -12,9 +13,11 @@ import React from 'react';
 // public virtual string? PerformerType { get; set; }
 const PerformerBlock = ({performer}) => {
     return (
-        <div>
+        <div className={`${css.container}`}>
             <img src={performer.image} alt="performer"/>
-            <h3>{performer.title}</h3>
+            {/*<h3>{performer.title}</h3>*/}
+
+            <div className={`${css.imageText}`}>{performer.title}</div>
         </div>
     );
 };

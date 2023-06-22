@@ -11,3 +11,22 @@ body {
 .mTop {
     padding-top: 100px;
 }
+.eventLine {
+
+}
+.eventBlock {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-right: 180px;
+    margin-left: 180px;
+
+}
+.name{
+    margin-left:110px;
+    font-size: 28px;
+}
+
+.PerformerBlock{
+    display: flex;
+}

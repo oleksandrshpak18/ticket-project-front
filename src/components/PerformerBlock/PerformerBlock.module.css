@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    justify-content: space-around;
+}
+.imageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 26px;
+    transition: all .3s;
+    letter-spacing: 1.25px;
+    font-weight: bold;
+
+}
+.container img {
+    height: 220px;
+    margin: 25px;
+}

@@ -1,0 +1,34 @@
+.eventLine {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 110px;
+    margin-right: 110px;
+    background-color: #F0F0F0;
+    margin-bottom: 20px;
+    height: 60px;
+    align-items: center;
+    width: 1190px;
+    border-left: 6px solid #FBB02D;
+}
+
+.eventLine button{
+    background-color: #73A24E;
+    border: none;
+    color:white;
+    font-weight: 550;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    box-sizing: border-box;
+    width: 130px;
+    height: 35px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 2px gray;
+}
+
+.eventLine p{
+    font-size: 25px;
+    margin: 5px 70px 10px 30px;
+
+}

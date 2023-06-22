@@ -1,3 +1,20 @@
 .event-block {
-    border: 1px solid dodgerblue;
+
+}
+.eventBlock img {
+    width: 260px;
+    /*margin: 70px;*/
+
+}
+
+.eventBlock p{
+    font-size: 22px;
+    margin: 5px;
+
+}
+h2{
+
+    margin-top: 5px ;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }

@@ -7,7 +7,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     padding: 0 80px;
     margin-top: -8px;
     margin-left: -8px;
@@ -18,7 +17,6 @@
     align-items: center;
     box-sizing: border-box;
     position: relative;
-
 }
 .header a {
     color: #000000;
