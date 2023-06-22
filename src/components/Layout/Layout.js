@@ -1,10 +1,10 @@
-import {Outlet} from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 
 import {Header} from '../Header/Header';
 import {Footer} from '../Footer/Footer';
 
 import css from './Layout.module.css';
-import {useState} from "react";
+import React, {useState} from "react";
 import EventBlock from "../EventBlock/EventBlock";
 import EventLine from "../EventLine/EventLine";
 import PerformerBlock from "../PerformerBlock/PerformerBlock";
@@ -157,7 +157,10 @@ const Layout = () => {
             <Header/>
             <div className={`${css.mTop}`}></div>
             <Outlet className={`${css.outlet}`}/>
-            {/*// add a flex container  to display them correctly*/}
+            {/*// this will be later removed, of course*/}
+            <NavLink to={'/performer'}>
+                <div className={``}>Сторінка виконаця, яка буде відкриватися по кліку на PerformerBox</div>
+            </NavLink>
             <h1>eventBlock</h1>
             <div className={`${css.eventBlock}`}>
             {
