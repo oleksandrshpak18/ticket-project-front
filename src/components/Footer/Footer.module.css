@@ -10,7 +10,11 @@
     margin-left: -8px;
 
 }
-.social-icons {
+.socialIcons {
     display: flex;
-
+    gap: 12px;
+}
+.Icon{
+    width: 20px;
+    height: 20px;
 }
