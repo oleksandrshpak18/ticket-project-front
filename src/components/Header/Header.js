@@ -1,6 +1,8 @@
 import css from './Header.module.css';
 
 import {NavLink} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import{faHouse, faMagnifyingGlass} from'@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
     return (
@@ -23,8 +25,8 @@ const Header = () => {
 
             <div className={`${css.f_header}`}>
                 <div className={`${css.f40}`}>...</div>
-                <div className={`${css.f40}`}>🔎︎</div>
-                <div className={`${css.f40}`}>📍 Україна</div>
+                <div className={`${css.f40}`}><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+                <div className={`${css.f40}`}><FontAwesomeIcon icon={faHouse} /> Україна</div>
         </div>
         </div>
     );
