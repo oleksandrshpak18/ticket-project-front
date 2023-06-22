@@ -1,0 +1,13 @@
+.outlet {
+    height: calc(100vh - 100px);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+.mTop {
+    padding-top: 100px;
+}
