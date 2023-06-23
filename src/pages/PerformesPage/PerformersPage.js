@@ -26,10 +26,8 @@ const PerformersPage = () => {
 
     return (
         <div>
-            all performers page
-            <div>
-                placeholder for search/filtering on front-end
-            </div>
+            <h1>all performers page</h1>
+            <div>placeholder for search / filter</div>
 
             <h2>tmp message: the following block has to display all the performers </h2>
 

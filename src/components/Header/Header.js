@@ -10,17 +10,14 @@ const Header = () => {
             <NavLink to={'/'}>
                 <div className={`${css.f60}`}>TICKETS.UA</div>
             </NavLink>
-            <NavLink to={'concerts'}>
+            <NavLink to={'/'}>
                 <div className={`${css.f40}`}>Concerts</div>
             </NavLink>
-            <NavLink to={'theatre'}>
-                <div className={`${css.f40}`}>Theatre</div>
+            <NavLink to={'performers'}>
+                <div className={`${css.f40}`}>Performers</div>
             </NavLink>
-            <NavLink to={'exhibition'}>
-                <div className={`${css.f40}`}>Exhibition</div>
-            </NavLink>
-            <NavLink to={'festival'}>
-                <div className={`${css.f40}`}>Festival</div>
+            <NavLink to={'/venues'}>
+                <div className={`${css.f40}`}>Venues</div>
             </NavLink>
 
             <div className={`${css.f_header}`}>

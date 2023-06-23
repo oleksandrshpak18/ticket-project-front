@@ -8,6 +8,8 @@ import {Layout} from "./components/Layout/Layout";
 import React from "react";
 import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
 import PerformersPage from "./pages/PerformesPage/PerformersPage";
+import EventsPage from "./pages/EventsPage/EventsPage";
+import VenuesPage from "./pages/VenuesPage/VenuesPage";
 
 
 export default function App() {
@@ -15,13 +17,10 @@ export default function App() {
       <Routes>
 
         <Route path={'/'} element={<Layout/>}>
-
-          {/*<Route index element={<ImagePage/>}/>*/}
-          {/*<Route path={'admin'} element={<AdminPage/>}/>*/}
-          <Route path={'performer'} element={<PerformersPage/>}/>
-
-          <Route path={'*'} element={<NotFoundPage/>}/>
-
+            <Route index element={<EventsPage/>}/>
+            <Route path={'performers'} element={<PerformersPage/>}/>
+            <Route path={'venues'} element={<VenuesPage/>}/>
+            <Route path={'*'} element={<NotFoundPage/>}/>
         </Route>
       </Routes>
   );
