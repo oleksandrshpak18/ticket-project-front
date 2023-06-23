@@ -5,7 +5,7 @@ import {connections} from "../../data";
 
 const SinglePerformer = ({performer}) => {
     const [events, setEvents] = useState([])
-
+    console.log(performer)
     useEffect(()=> {
         // request data
         // fetch(connections.get_all_performers) !!!// change connection string

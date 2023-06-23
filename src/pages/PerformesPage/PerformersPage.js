@@ -3,6 +3,7 @@ import css from "./PerformersPage.module.css";
 
 import {connections} from "../../data";
 import PerformerBlock from "../../components/PerformerBlock/PerformerBlock";
+import {SinglePerformer} from "../../components/SinglePerformer/SinglePerformer";
 
 const PerformersPage = () => {
     const [performers, setPerformers] = useState([])
@@ -39,7 +40,9 @@ const PerformersPage = () => {
                     ))
                 }
             </div>
-
+        <div> {/* to be removed*/}
+            {performers.length !== 0 && <SinglePerformer performer={performers.at(0)}/> }
+        </div>
         </div>
 
     );
