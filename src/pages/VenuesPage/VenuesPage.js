@@ -1,45 +1,34 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import VenueBlock from "../../components/VenueBlock/VenueBlock";
+import {connections} from "../../data";
+
+import css from './VenuesPage.module.css'
 
 const VenuesPage = () => {
+    const [venues, setVenues] = useState([])
 
-    const [venues, setVenues] = useState([
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
-        },
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
-        },
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
-        },
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
-        },
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
-        },
-        {
-            venue_name: 'venue 1',
-            image: 'https://upl.ua/glide/uploads/2008/fagMbMMhzsc66iUZiTk8fs7O4C-69mSy.jpg?w=900&h=540&fit=contain&s=23b87b8f513f7f91e9ffba6f83eb43f9',
-            address: 'address 1'
+    useEffect(() => {
+        if(venues.length === 0){
+            // request data
+            try {
+                fetch(connections.get_all_venues)
+                    .then(response => response.json())
+                    .then((json) => {
+                        console.log(json)
+                        setVenues(json)
+                    })
+
+            } catch (e){
+                console.log(e)
+            }
         }
-    ])
+
+    }, [venues])
 
     return (
         <div>
             <div>placeholder for search / filter</div>
-            <div className={``}>
+            <div className={`${css.venuesBlockContainer}`}>
                 {
                     venues.map((elem)=>(
                         <VenueBlock venue={elem}/>
