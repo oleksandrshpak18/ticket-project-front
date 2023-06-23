@@ -11,7 +11,7 @@ const Header = () => {
                 <div className={`${css.f60}`}>TICKETS.UA</div>
             </NavLink>
             <NavLink to={'/'}>
-                <div className={`${css.f40}`}>Concerts</div>
+                <div className={`${css.f40}`}>Events</div>
             </NavLink>
             <NavLink to={'performers'}>
                 <div className={`${css.f40}`}>Performers</div>

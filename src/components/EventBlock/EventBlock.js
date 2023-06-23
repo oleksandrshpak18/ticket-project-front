@@ -1,20 +1,25 @@
+import React from 'react';
 
 import css from "../EventBlock/EventBlock.module.css";
 
-import React from 'react';
-
 const EventBlock = ({ev}) => {
+    const date = new Date(ev.eventDate);
     return (
-
         <div className={`${css.eventBlock}`}>
-            {/*// ev: image, title, venue.venue_name, date*/}
-            <img src={ev.image} alt="event"/>
-            <h2 >{ev.title}</h2>
-            <p>{ev.venue.venue_name}</p>
-            <p>{ev.date}</p>
-
+            <img src={ev.image} alt={`${ev.eventTitle}`}/>
+            <h2 >{ev.eventTitle}</h2>
+            <p>{ev.venue.venueName}</p>
+            <p>
+                {
+                    date.toLocaleString('default',
+                    {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    })
+                }
+            </p>
         </div>
-
     );
 };
 
