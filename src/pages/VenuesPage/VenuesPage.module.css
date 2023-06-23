@@ -1,0 +1,4 @@
+.venuesBlockContainer{
+    display: flex;
+    flex-wrap: wrap;
+}

@@ -6,9 +6,9 @@ const VenueBlock = ({ venue }) => {
     return (
         <div className={`${css.container}`}>
             <div className={`${css.imageContainer}`}>
-                <img src={venue.image} alt={venue.venue_name} />
-                    <div className={`${css.VenuePos}`}>{venue.venue_name}</div>
-                    <div className={`${css.AddressPos}`}>{venue.address}</div>
+                <img src={venue.img} alt={venue.venueName} />
+                    <div className={`${css.VenuePos}`}>{venue.venueName}</div>
+                    <div className={`${css.AddressPos}`}>{venue.city}</div>
             </div>
         </div>
     );
