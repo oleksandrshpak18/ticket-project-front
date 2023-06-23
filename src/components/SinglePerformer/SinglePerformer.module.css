@@ -41,10 +41,8 @@
 .Genres{
     margin-top: -60px;
     margin-left: 410px;
-    font-size: 18px;
-    /*display: inline-flex;*/
-    /*gap:10px;*/
-    /*border: 6px solid #FBB02D*/
+    font-size: 16px;
+
 }
 .word {
     display: inline-block;
@@ -53,7 +51,7 @@
     margin-top: 20px;
     margin-right: 25px;
     border-radius: 2px;
-    width: 90px;
+    width: auto;
     height: 15px;
     text-align: center;
     line-height: 1;;

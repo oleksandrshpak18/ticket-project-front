@@ -1,7 +1,8 @@
 .container {
-
+    display: flex;
+    margin-right: 10px;
+    margin-left: 60px;
     position: relative;
-    justify-content: space-around;
 }
 .imageText {
     position: absolute;
@@ -9,15 +10,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 26px;
+    font-size: 22px;
     transition: all .3s;
     letter-spacing: 1.25px;
     font-weight: bold;
 
 }
 .img{
-    height: 220px;
-    margin: 25px;
+    height: 230px;
+    width: 320px;
+    /*width: 260px;*/
+    margin: 10px;
+    margin-right: -5px;
+    margin-left: -15px;
     transition-delay: 20ms;
 }
 

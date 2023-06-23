@@ -25,7 +25,6 @@ const SinglePerformer = ({performer}) => {
             <div className={`${css.performerDisplay}`}>
                 <img src={performer.img} alt={`${performer.title}`} className={`${css.imageContainer}`}/>
 
-
                 <div className={`${css.textContainer}`}>
                     <h2 >{performer.title}</h2>
                     <div className={`${css.Genres}`}>
