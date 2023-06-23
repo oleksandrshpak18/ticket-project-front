@@ -13,16 +13,16 @@ import PerformerPage from "./pages/PerformerPage/PerformerPage";
 export default function App() {
     const performer = {
         performerId: 1,
-        title: "Antytila +Taras",
+        title: "Antytila",
         description: "Antytila is a Ukrainian rock band that was formed in 2005 in the city of Lviv. The band\"s name translates to \"Antibodies\" in English, and they are known for their energetic performances and catchy melodies. The band consists of five members, including lead singer Taras Topolia, guitarist Yevhen Rohachevsky, bassist Bohdan Nyzhankivsky, drummer Denys Myzyuk, and keyboardist Andriy Halay. Antytila gained national popularity in Ukraine after their victory in the television show \"Chance\" in 2007. Since then, they have released multiple albums and singles and have performed at numerous concerts and festivals in Ukraine and abroad.",
         careerBeginYear: null,
-        img: "https://novy.tv/wp-content/uploads/sites/96/2019/12/2019-11-17_00-45-33_Maximov-1.jpg",
+        img: "https://img.tsn.ua/cached/080/tsn-471c1e8f46d3594337c6f6226982b912/thumbs/1036x648/64/79/cc4cc0391a69b28180333afdbd3a7964.jpeg",
         country: "Ukraine",
         performerGenres: [
             "Pop-Rock",
             "Pop"
         ],
-        performerType: "band"
+        performerType: "Band"
     }
     return (
       <Routes>

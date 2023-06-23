@@ -173,11 +173,9 @@ const Layout = () => {
             <p className={`${css.name}`}>List of events</p>
             <div className={`${css.eventLine}`}>
             {
-
                 events.map((elem)=>(
                     <EventLine ev={elem}/>
                 ))
-
             }
                 </div>
 
