@@ -18,8 +18,8 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-right: 180px;
-    margin-left: 180px;
+    margin-right: 140px;
+    margin-left: 140px;
 
 }
 .name{
