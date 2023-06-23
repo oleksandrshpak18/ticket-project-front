@@ -21,23 +21,46 @@ const SinglePerformer = ({performer}) => {
     return (
         <div>
             <img src={performer.img} alt={`${performer.title}`}/>
+            {/*<h2>{performer.title}</h2>*/}
+            {/*<div>*/}
+            {/*    {*/}
+            {/*        performer.performerGenres.map((elem) => (*/}
+            {/*            <span>{elem}</span>*/}
+            {/*        ))*/}
+            {/*    }*/}
+            {/*</div>*/}
+            {/*<div>{performer.performerType}</div>*/}
+            {/*<p>{performer.description}</p>*/}
+            {/*{performer.careerBeginYear != null && <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
+
+            {/*<div> /!*this is a container to fill it with data about performer's events*!/*/}
+            {/*    <h2>Перелік подій</h2>*/}
+            {/*    <div className={`${css.eventLine}`}>*/}
+            {/*        {*/}
+            {/*            events.map((elem) => (*/}
+            {/*                <EventLine ev={elem}/>*/}
+            {/*            ))*/}
+
+            {/*        }*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <h2>{performer.title}</h2>
             <div>
                 {
-                    performer.performerGenres.map((elem) => (
+                    performer.performerGenres.map((elem)=>(
                         <span>{elem}</span>
                     ))
                 }
             </div>
             <div>{performer.performerType}</div>
             <p>{performer.description}</p>
-            {performer.careerBeginYear != null && <p>Початок кар'єри: {performer.careerBeginYear}</p>}
+            {performer.careerBeginYear != null &&  <p>Початок кар'єри: {performer.careerBeginYear}</p> }
 
             <div> {/*this is a container to fill it with data about performer's events*/}
                 <h2>Перелік подій</h2>
                 <div className={`${css.eventLine}`}>
                     {
-                        events.map((elem) => (
+                        events.map((elem)=>(
                             <EventLine ev={elem}/>
                         ))
 
