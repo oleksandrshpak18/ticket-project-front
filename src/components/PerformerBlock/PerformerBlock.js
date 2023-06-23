@@ -2,13 +2,16 @@ import React from 'react';
 import css from "../PerformerBlock/PerformerBlock.module.css";
 
 const PerformerBlock = ({performer, singleSetter}) => {
+    const defaultImage = 'https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1'
     const onClickFunction = () => {
         singleSetter(performer)
     }
 
     return (
         <div onClick={onClickFunction} className={`${css.container}`}>
-            <img src={performer.img} alt={`${performer.title}`} className={css.img}/>
+            <img src={
+                (performer.img != null) ? performer.img : defaultImage
+            } alt={`${performer.title}`} className={css.img}/>
             <div className={`${css.imageText}`}>{performer.title}</div>
         </div>
     );
