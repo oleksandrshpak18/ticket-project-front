@@ -8,7 +8,7 @@ import css from './Layout.module.css';
 
 const Layout = () => {
     return (
-        <div>
+        <div className={`${css.forFooter}`}>
             <Header/>
             <div className={`${css.mTop}`}></div>
             <Outlet className={`${css.outlet}`}/>

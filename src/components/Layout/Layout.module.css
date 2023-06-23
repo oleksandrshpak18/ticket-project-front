@@ -30,3 +30,9 @@ body {
 .PerformerBlock{
     display: flex;
 }
+
+.forFooter {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

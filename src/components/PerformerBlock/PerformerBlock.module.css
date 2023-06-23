@@ -14,7 +14,13 @@
     font-weight: bold;
 
 }
-.container img {
+.img{
     height: 220px;
     margin: 25px;
+    transition-delay: 20ms;
+}
+
+.img:hover {
+    filter: blur(3px) saturate(150%);
+    cursor: pointer;
 }

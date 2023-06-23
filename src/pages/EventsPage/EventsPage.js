@@ -93,7 +93,6 @@ const EventsPage = () => {
     ])
     return (
         <div>
-            <h1>Events page</h1>
             <div>placeholder for search / filter</div>
             <div className={`${css.eventBlock}`}>
                 {

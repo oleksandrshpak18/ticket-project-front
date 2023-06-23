@@ -9,38 +9,50 @@ const PerformersPage = () => {
     const [performers, setPerformers] = useState([])
 
     useEffect(() => {
-        // request data
-        try {
-            fetch(connections.get_all_performers)
-                .then(response => response.json())
-                .then((json) => {
-                    console.log(json)
-                    setPerformers(json)
-                })
+        if(performers.length===0){
+            // request data
+            try {
+                fetch(connections.get_all_performers)
+                    .then(response => response.json())
+                    .then((json) => {
+                        console.log(json)
+                        setPerformers(json)
+                    })
 
-        } catch (e){
-            console.log(e)
+            } catch (e){
+                console.log(e)
+            }
         }
-        // set data
+
     }, [performers])
+
+    const [singleOne, setSingleOne] = useState(null)
+
+    const f = () => {
+        setSingleOne(null)
+    }
 
     return (
         <div>
-            <h1>all performers page</h1>
-            <div>placeholder for search / filter</div>
+            {singleOne && <div className={`${css.resetter}`} onClick={f}>back to all performers</div>}
+            {
+                !singleOne &&
+                <div>
+                    <div>placeholder for search / filter
+                    </div>
 
-            <h2>tmp message: the following block has to display all the performers </h2>
-
-            <div className={`${css.PerformerBlock}`}>
-                {
-                    performers.map((elem)=>(
-                        <PerformerBlock performer={elem}/>
-                    ))
-                }
+                    <div className={`${css.PerformerBlock}`}>
+                        {
+                            performers.map((elem)=>(
+                                <PerformerBlock performer={elem} singleSetter={setSingleOne}/>
+                            ))
+                        }
+                    </div>
+                </div>
+            }
+            <div>
+                {singleOne && <SinglePerformer performer={singleOne}/> }
             </div>
-        <div> {/* to be removed*/}
-            {performers.length !== 0 && <SinglePerformer performer={performers.at(0)}/> }
-        </div>
         </div>
 
     );

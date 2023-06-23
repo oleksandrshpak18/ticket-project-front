@@ -1,3 +1,15 @@
 .PerformerBlock{
     display: flex;
+    flex-wrap: wrap;
+}
+
+.resetter {
+    float: right;
+
+    text-decoration: underline;
+}
+
+.resetter:hover {
+    color: dodgerblue;
+    cursor: pointer;
 }
