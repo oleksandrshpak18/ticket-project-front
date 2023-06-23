@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import css from "../../components/Layout/Layout.module.css";
+import css from "./SinglePerformer.module.css";
 import EventLine from "../../components/EventLine/EventLine";
 import {connections} from "../../data";
 
@@ -19,55 +19,40 @@ const SinglePerformer = ({performer}) => {
     }, [performer])
 
     return (
-        <div>
-            <img src={performer.img} alt={`${performer.title}`}/>
-            {/*<h2>{performer.title}</h2>*/}
-            {/*<div>*/}
-            {/*    {*/}
-            {/*        performer.performerGenres.map((elem) => (*/}
-            {/*            <span>{elem}</span>*/}
-            {/*        ))*/}
-            {/*    }*/}
-            {/*</div>*/}
-            {/*<div>{performer.performerType}</div>*/}
-            {/*<p>{performer.description}</p>*/}
-            {/*{performer.careerBeginYear != null && <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
 
-            {/*<div> /!*this is a container to fill it with data about performer's events*!/*/}
-            {/*    <h2>Перелік подій</h2>*/}
-            {/*    <div className={`${css.eventLine}`}>*/}
-            {/*        {*/}
-            {/*            events.map((elem) => (*/}
-            {/*                <EventLine ev={elem}/>*/}
-            {/*            ))*/}
+        <div className={`${css.performerContainer}`}>
 
-            {/*        }*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <h2>{performer.title}</h2>
-            <div>
+            <div className={`${css.performerDisplay}`}>
+                <img src={performer.img} alt={`${performer.title}`} className={`${css.imageContainer}`}/>
+
+
+                <div className={`${css.textContainer}`}>
+                    <h2 >{performer.title}</h2>
+                    <div className={`${css.Genres}`}>
+                        {
+                            performer.performerGenres.map((elem)=>(
+                                <span className={`${css.word}`}>{elem}</span>
+                            ))
+                        }
+                        <div className={`${css.word}`}>{performer.performerType}</div>
+                    </div>
+
+                    <p  >{performer.description}</p>
+                    {performer.careerBeginYear != null &&  <p>Початок кар'єри: {performer.careerBeginYear}</p> }
+                </div>
+            </div>
+
+            <div> {/*this is a container to fill it with data about performer's events*/}
+                {/*<h2>List of events</h2>*/}
+                <p className={`${css.name}`}>List of events</p>
                 {
-                    performer.performerGenres.map((elem)=>(
-                        <span>{elem}</span>
+                    events.map((elem)=>(
+                        <EventLine ev={elem}/>
                     ))
                 }
             </div>
-            <div>{performer.performerType}</div>
-            <p>{performer.description}</p>
-            {performer.careerBeginYear != null &&  <p>Початок кар'єри: {performer.careerBeginYear}</p> }
-
-            <div> {/*this is a container to fill it with data about performer's events*/}
-                <h2>Перелік подій</h2>
-                <div className={`${css.eventLine}`}>
-                    {
-                        events.map((elem)=>(
-                            <EventLine ev={elem}/>
-                        ))
-
-                    }
-                </div>
-            </div>
         </div>
+
     );
 };
 

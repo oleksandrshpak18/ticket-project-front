@@ -7,15 +7,19 @@ import PerformerBlock from "../../components/PerformerBlock/PerformerBlock";
 const PerformersPage = () => {
     const [performers, setPerformers] = useState([])
 
-    useEffect(()=> {
+    useEffect(() => {
         // request data
-        fetch(connections.get_all_performers)
-            .then(response => response.json())
-            .then((json) => {
-                console.log(json)
-                setPerformers(json)
-            })
+        try {
+            fetch(connections.get_all_performers)
+                .then(response => response.json())
+                .then((json) => {
+                    console.log(json)
+                    setPerformers(json)
+                })
 
+        } catch (e){
+            console.log(e)
+        }
         // set data
     }, [performers])
 
