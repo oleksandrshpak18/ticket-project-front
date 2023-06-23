@@ -1,6 +1,8 @@
-import React from 'react';
-import css from './NotFoundPage.module.css'
+import React, {useState} from 'react';
 import {NavLink} from "react-router-dom";
+
+import css from './NotFoundPage.module.css'
+
 const NotFoundPage = () => {
     return (
         <div>
