@@ -1,16 +1,16 @@
+
 import React from 'react';
-import css from "../PerformerBlock/PerformerBlock.module.css";
+import css from "../VenueBlock/VenueBlock.module.css";
 
-
-// venue: image, venue_name, address
-const VenueBlock = ({venue}) => {
+const VenueBlock = ({ venue }) => {
     return (
-        <div>
-            <img src={venue.image} alt="performer"/>
-            <h3>{venue.address}</h3>
-            <div className={``}>{venue.venue_name}</div>
+        <div className={`${css.container}`}>
+            <div className={`${css.imageContainer}`}>
+                <img src={venue.image} alt={venue.venue_name} />
+                    <div className={`${css.VenuePos}`}>{venue.venue_name}</div>
+                    <div className={`${css.AddressPos}`}>{venue.address}</div>
+            </div>
         </div>
     );
 };
-
 export default VenueBlock;
