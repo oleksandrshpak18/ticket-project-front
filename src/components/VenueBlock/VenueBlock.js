@@ -2,9 +2,10 @@
 import React from 'react';
 import css from "../VenueBlock/VenueBlock.module.css";
 
-const VenueBlock = ({ venue }) => {
+const VenueBlock = ({ venue , singleSetter}) => {
+
     return (
-        <div className={`${css.container}`}>
+        <div  className={`${css.container}`}>
             <div className={`${css.imageContainer}`}>
                 <img src={venue.img} alt={venue.venueName} />
                     <div className={`${css.VenuePos}`}>{venue.venueName}</div>

@@ -2,10 +2,16 @@
     position: relative;
     display: flex;
     justify-content: space-around;
+    margin-left: 60px;
+    margin-right: 10px;
 }
 .container img {
-    height: 220px;
-    margin: 25px;
+    height: 230px;
+    width: 320px;
+    margin: 10px;
+    margin-right: -5px;
+    margin-left: -15px;
+
 }
 .imageContainer {
     position: relative;
@@ -22,16 +28,18 @@
     transition: all .3s;
     letter-spacing: 1.25px;
     font-weight: bold;
+    text-shadow: 0.5px 2px 6px rgba(255, 255, 255, 0.4);
 }
 
 .AddressPos{
     position: absolute;
-    top: 80%;
-    left: 80%;
-    transform: translate(-80%, -80%);
+    top: 85%;
+    left: 85%;
+    transform: translate(-85%, -85%);
     color: white;
     font-size: 20px;
     transition: all .3s;
     letter-spacing: 1.25px;
     font-weight: bold;
+    text-shadow: 0.5px 2px 6px rgba(255, 255, 255, 0.4);
 }

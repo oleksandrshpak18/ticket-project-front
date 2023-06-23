@@ -5,6 +5,8 @@
     margin-top: -5px;
     margin-left: 80px;
     margin-right: 55px;
+
+
 }
 
 .performerDisplay{
@@ -13,6 +15,8 @@
     -webkit-flex-direction: row;
     flex-direction: row;
     align-items: flex-start;
+
+
 }
 
 .performerDisplay p{
