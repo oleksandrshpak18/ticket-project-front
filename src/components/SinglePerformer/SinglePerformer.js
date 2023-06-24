@@ -94,7 +94,7 @@ const SinglePerformer = () => {
 
                         {events &&
                             events.map((elem)=>(
-                                <EventLine ev={elem}/>
+                                <EventLine ev={elem} key={elem.eventId}/>
                             ))
                         }
                     </div>

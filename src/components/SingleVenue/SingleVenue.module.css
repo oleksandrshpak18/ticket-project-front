@@ -1,0 +1,29 @@
+.info_container {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.toggle_container {
+
+}
+
+.left_toggle, .right_toggle {
+    margin: 0;
+    width: 50%;
+    background-color: #FFFFFF;
+    border: 3px solid #FBB02D;
+    height: 1.5em;
+    transition: background-color 0.5s ease-in;
+}
+
+.left_toggle {
+
+}
+
+.right_toggle {
+    border-left: none;
+}
+
+.active_button {
+    background-color: #FBB02D;
+}

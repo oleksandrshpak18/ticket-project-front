@@ -28,7 +28,7 @@ const EventsPage = () => {
             <div className={`${css.eventBlock}`}>
                 {
                     events.map((elem)=>(
-                        <EventBlock ev={elem}/>
+                        <EventBlock ev={elem} key={elem.eventId}/>
                     ))
                 }
             </div>

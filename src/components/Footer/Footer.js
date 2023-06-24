@@ -8,7 +8,16 @@ const Footer = () => {
         <div className={`${css.footer}`}>
             <p>TICKETS.UA</p>
 
-            <p> <FontAwesomeIcon icon={faPhone} /> +38 (098) 254 78 36</p>
+            <div className={`${css.flex}`}>
+                <div>
+                    <FontAwesomeIcon icon={faPhone} className={`${css.Icon}`}/>
+                </div>
+                <div className={`${css.ml_10}`}>
+                    <div>+38 (098) 254 78 36</div>
+                    <div>+38 (096) 329 49 40</div>
+                </div>
+            </div>
+
             <div className={`${css.socialIcons}`}>
                 <FontAwesomeIcon icon={faFacebook} className={`${css.Icon}`} />
                 <FontAwesomeIcon icon={faTwitter} className={`${css.Icon}`} />

@@ -19,12 +19,7 @@ const Header = () => {
             <NavLink to={'/venues'}>
                 <div className={`${css.f40}`}>Venues</div>
             </NavLink>
-
-            <div className={`${css.f_header}`}>
-                <div className={`${css.f40}`}>...</div>
-                <div className={`${css.f40}`}><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
-                <div className={`${css.f40}`}><FontAwesomeIcon icon={faHouse} /> Україна</div>
-        </div>
+            
         </div>
     );
 };

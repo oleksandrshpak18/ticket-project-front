@@ -3,6 +3,8 @@ import VenueBlock from "../../components/VenueBlock/VenueBlock";
 import {connections} from "../../data";
 
 import css from './VenuesPage.module.css'
+import slugify from "slugify";
+import {NavLink} from "react-router-dom";
 
 const VenuesPage = () => {
     const [venues, setVenues] = useState([])
@@ -27,11 +29,22 @@ const VenuesPage = () => {
 
     return (
         <div>
-            <div>placeholder for search / filter</div>
+            <div>
+                placeholder for search / filter
+            </div>
             <div className={`${css.venuesBlockContainer}`}>
                 {
                     venues.map((elem)=>(
-                        <VenueBlock venue={elem}/>
+                        <NavLink
+                            key={elem.venueId}
+                            to={{
+                                pathname: `${slugify(elem.venueName, {lower: true})}`,
+                            }}
+                            state={{id: `${elem.venueId}`} }
+                        >
+                            <VenueBlock venue={elem}/>
+                        </NavLink>
+
                     ))
                 }
             </div>
