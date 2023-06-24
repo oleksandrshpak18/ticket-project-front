@@ -8,7 +8,7 @@ const EventBlock = ({ev}) => {
     return (
         <div className={`${css.eventBlock}`}>
             <img src={
-                (ev.image != null) ? ev.image : defaultImage
+                (ev.img != null) ? ev.img : defaultImage
             } alt={`${ev.eventTitle}`}/>
             <h2 >{ev.eventTitle}</h2>
             <p>{ev.venue.venueName}</p>
