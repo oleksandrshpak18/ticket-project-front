@@ -20,19 +20,20 @@
     margin-right: 15px;
 }
 
-.eventBlock::after {
+.eventBlock::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #FB6107;
+    background-color: transparent;
     opacity: 0;
     transition: opacity 0.3s;
 }
 
-.eventBlock:hover::after {
+.eventBlock:hover::before {
+    background-color: #FB6107;
     opacity: 0.9;
     cursor: pointer;
 }
@@ -74,5 +75,4 @@
 }
 .eventBlock:hover .overlayItems {
     display: block;
-    z-index: 3;
 }
