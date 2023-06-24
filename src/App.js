@@ -10,6 +10,7 @@ import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
 import PerformersPage from "./pages/PerformesPage/PerformersPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import VenuesPage from "./pages/VenuesPage/VenuesPage";
+import {SinglePerformer} from "./components/SinglePerformer/SinglePerformer";
 
 
 export default function App() {
@@ -18,7 +19,10 @@ export default function App() {
 
         <Route path={'/'} element={<Layout/>}>
             <Route index element={<EventsPage/>}/>
-            <Route path={'performers'} element={<PerformersPage/>}/>
+            <Route path={'performers'}>
+                <Route index element={<PerformersPage/>}></Route>
+                <Route path={':title'} element={<SinglePerformer/>}></Route>
+            </Route>
             <Route path={'venues'} element={<VenuesPage/>}/>
             <Route path={'*'} element={<NotFoundPage/>}/>
         </Route>
