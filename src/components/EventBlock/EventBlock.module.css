@@ -1,20 +1,23 @@
-.event-block {
+.eventTitle{
+    font-size: 20px;
+    max-width: 26ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+
 
 }
 .eventBlock img {
-    width: 260px;
-    /*margin: 70px;*/
 
+    height: 340px;
+    width: 260px;
 }
 
 .eventBlock p{
-    font-size: 22px;
+    font-size: 18px;
     margin: 5px;
 
-}
-h2{
-
-    margin-top: 5px ;
-    margin-left: 5px;
-    margin-bottom: 10px;
 }

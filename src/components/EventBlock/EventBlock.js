@@ -6,11 +6,13 @@ const EventBlock = ({ev}) => {
     const defaultImage = 'https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?fit=1200%2C800&ssl=1'
     const date = new Date(ev.eventDate);
     return (
+
         <div className={`${css.eventBlock}`}>
+
             <img src={
                 (ev.img != null) ? ev.img : defaultImage
             } alt={`${ev.eventTitle}`}/>
-            <h2 >{ev.eventTitle}</h2>
+            <h4 className={`${css.eventTitle}`} >{ev.eventTitle}</h4>
             <p>{ev.venue.venueName}</p>
             <p>
                 {
