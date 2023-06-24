@@ -24,6 +24,10 @@ const EventBlock = ({ev}) => {
                     })
                 }
             </p>
+            <div className={`${css.overlayItems}`}>
+                <button>Buy</button>
+                <p >{ev.performer.title}</p>
+             </div>
         </div>
     );
 };

@@ -7,18 +7,34 @@
     margin-top: 5px;
     margin-bottom: 15px;
     margin-left: 5px;
-
-
 }
 .eventBlock img {
     height: 340px;
     width: 265px;
 }
 .eventBlock{
+    position: relative;
     border: 3px solid #EEEEEE;
     margin-bottom: 35px;
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.eventBlock::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FB6107;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.eventBlock:hover::after {
+    opacity: 0.9;
+    cursor: pointer;
 }
 .eventBlock p{
     font-size: 18px;
@@ -27,5 +43,36 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
 
+.eventBlock button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 50px;
+    border: 4px solid #F0F0F0;
+    background-color: transparent;
+    color: #EEEEEE;
+    margin-top: 60px;
+    margin-left: 0;
+}
+
+.overlayItems p{
+    position: absolute;
+    color:#FFFFFF;
+    font-weight: bold;
+    font-size: 32px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.overlayItems {
+    display: none;
+}
+.eventBlock:hover .overlayItems {
+    display: block;
+    z-index: 3;
 }
