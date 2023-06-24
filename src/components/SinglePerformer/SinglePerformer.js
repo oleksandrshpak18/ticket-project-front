@@ -5,40 +5,46 @@ import {connections} from "../../data";
 import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
 
 const SinglePerformer = () => {
-    console.log('we are here!!')
     const state = useLocation().state
-    // console.log(id)
 
     const [performer, setPerformer] = useState(null)
     const [events, setEvents] = useState([])
+    const [isEventsLoaded, setIsEventsLoaded] = useState(false)
 
     useEffect(()=>{
         if(state != null) {
             // request data
-            console.log(`id: ${state.id}`)
+            // console.log(`id: ${state.id}`)
             fetch(`${connections.get_performer_by_id}${state.id}`)
                 .then(response => response.json())
                 .then((json) => {
-                    console.log(json)
+                    // console.log(json)
                     setPerformer(json) // set data
                 })
                 .catch((err) => {
-                    console.log(err.message);
+                    console.warn(err.message);
                 })
         }
     }, [state])
 
     useEffect(()=> {
-        console.log(performer)
-        // request data
-        // fetch(connections.get_all_performers) !!!// change connection string
-        //     .then(response => response.json())
-        //     .then((json) => {
-        //         console.log(json)
-        //         setEvents(json)
-        //     })
-        console.log('request an events of a performer; must be done later')
-        // set data
+        if(performer != null) {
+            // console.log(performer)
+            // request data
+            fetch(`${connections.get_events_by_performer_id}${performer.performerId}`)
+                .then(response => response.json())
+                .then((json) => {
+                    // console.log(json)
+                    if(json.status !== 404) {
+                        setEvents(json)
+                    }
+                    setIsEventsLoaded(true);
+                })
+                .catch((err) => {
+                    console.warn(err.message);
+                })
+        }
+
     }, [performer])
 
 
@@ -72,14 +78,25 @@ const SinglePerformer = () => {
                         </div>
                     </div>
 
-                    <div> {/*this is a container to fill it with data about performer's events*/}
-                        {/*<h2>List of events</h2>*/}
+                    <div>
                         <p className={`${css.name}`}>List of events</p>
-                        {/*{*/}
-                        {/*    events.map((elem)=>(*/}
-                        {/*        <EventLine ev={elem}/>*/}
-                        {/*    ))*/}
-                        {/*}*/}
+                        {
+                            events.length === 0 && !isEventsLoaded && <div>
+                            Loading...
+                            </div>
+                        }
+
+                        {
+                            events.length === 0 && isEventsLoaded && <div>
+                                No events here yet. Check for updates in nearest future.
+                            </div>
+                        }
+
+                        {events &&
+                            events.map((elem)=>(
+                                <EventLine ev={elem}/>
+                            ))
+                        }
                     </div>
                 </div>
             </div> }
