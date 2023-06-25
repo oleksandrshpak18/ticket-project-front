@@ -5,6 +5,7 @@ import slugify from 'slugify';
 
 import css from "../../components/Layout/Layout.module.css";
 import EventBlock from "../../components/EventBlock/EventBlock";
+import {Loading} from "../../components/Loading/Loading";
 
 const EventsPage = () => {
     const [events, setEvents] = useState([])
@@ -32,20 +33,33 @@ const EventsPage = () => {
             <div>
                 placeholder for search / filter
             </div>
-            <div className={`${css.eventBlock}`}>
+
+            <div>
                 {
-                    events.map((elem)=>(
-                        <NavLink
-                            className={`${css.navLink}`}
-                            key={elem.eventId}
-                            to={{
-                                pathname: `events/${slugify(elem.eventTitle, {lower: true})}`,
-                            }}
-                            state={{id: `${elem.eventId}`} }
-                        >
-                            <EventBlock ev={elem}/>
-                        </NavLink>
-                    ))
+                    events.length === 0 &&
+                    <div>
+                        <Loading/>
+                    </div>
+                }
+
+                {
+                    events.length !== 0 &&
+                    <div className={`${css.eventBlock}`}>
+                        {
+                            events.map((elem)=>(
+                                <NavLink
+                                    className={`${css.navLink}`}
+                                    key={elem.eventId}
+                                    to={{
+                                        pathname: `events/${slugify(elem.eventTitle, {lower: true})}`,
+                                    }}
+                                    state={{id: `${elem.eventId}`} }
+                                >
+                                    <EventBlock ev={elem}/>
+                                </NavLink>
+                            ))
+                        }
+                    </div>
                 }
             </div>
         </div>

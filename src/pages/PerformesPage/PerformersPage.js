@@ -5,6 +5,7 @@ import slugify from 'slugify';
 
 import css from "./PerformersPage.module.css";
 import PerformerBlock from "../../components/PerformerBlock/PerformerBlock";
+import {Loading} from "../../components/Loading/Loading";
 
 const PerformersPage = () => {
     const [performers, setPerformers] = useState([])
@@ -33,20 +34,30 @@ const PerformersPage = () => {
                 placeholder for search / filter
             </div>
 
-            <div className={`${css.PerformerBlock}`}>
-                {
-                    performers.map((elem)=>(
-                        <NavLink
-                            key={elem.performerId}
-                            to={{
-                                pathname: `${slugify(elem.title, {lower: true})}`,
-                            }}
-                            state={{id: `${elem.performerId}`} }
-                        >
-                            <PerformerBlock performer={elem}/>
-                        </NavLink>
+            <div>
+                { performers.length === 0 &&
+                    <div>
+                        <Loading/>
+                    </div>
+                }
 
-                    ))
+                { performers.length !== 0 &&
+                    <div className={`${css.PerformerBlock}`}>
+                        {
+                            performers.map((elem)=>(
+                                <NavLink
+                                    key={elem.performerId}
+                                    to={{
+                                        pathname: `${slugify(elem.title, {lower: true})}`,
+                                    }}
+                                    state={{id: `${elem.performerId}`} }
+                                >
+                                    <PerformerBlock performer={elem}/>
+                                </NavLink>
+
+                            ))
+                        }
+                    </div>
                 }
             </div>
         </div>

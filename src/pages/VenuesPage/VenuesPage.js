@@ -5,6 +5,7 @@ import {connections} from "../../data";
 import css from './VenuesPage.module.css'
 import slugify from "slugify";
 import {NavLink} from "react-router-dom";
+import {Loading} from "../../components/Loading/Loading";
 
 const VenuesPage = () => {
     const [venues, setVenues] = useState([])
@@ -32,20 +33,32 @@ const VenuesPage = () => {
             <div>
                 placeholder for search / filter
             </div>
-            <div className={`${css.venuesBlockContainer}`}>
-                {
-                    venues.map((elem)=>(
-                        <NavLink
-                            key={elem.venueId}
-                            to={{
-                                pathname: `${slugify(elem.venueName, {lower: true})}`,
-                            }}
-                            state={{id: `${elem.venueId}`} }
-                        >
-                            <VenueBlock venue={elem}/>
-                        </NavLink>
 
-                    ))
+            <div>
+                {
+                    venues.length === 0 &&
+                    <div>
+                        <Loading/>
+                    </div>
+                }
+
+                { venues.length !== 0 &&
+                    <div className={`${css.venuesBlockContainer}`}>
+                        {
+                            venues.map((elem)=>(
+                                <NavLink
+                                    key={elem.venueId}
+                                    to={{
+                                        pathname: `${slugify(elem.venueName, {lower: true})}`,
+                                    }}
+                                    state={{id: `${elem.venueId}`} }
+                                >
+                                    <VenueBlock venue={elem}/>
+                                </NavLink>
+
+                            ))
+                        }
+                    </div>
                 }
             </div>
         </div>

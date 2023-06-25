@@ -18,11 +18,12 @@
 }
 
 .middle_toggle {
-
+    border-left: none;
+    border-right: none;
 }
 
 .right_toggle {
-    border-left: none;
+
 }
 
 .active_button {

@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import css from './SingleEvent.module.css'
 import {Navigate, useLocation} from "react-router-dom";
 import {connections} from "../../data";
+import {Loading} from "../Loading/Loading";
 
 const SingleEvent = () => {
     const state = useLocation().state
@@ -42,12 +43,22 @@ const SingleEvent = () => {
 
     return (
         <div>
-            <h1>event</h1>
-            {event && <p>{JSON.stringify(event)}</p>}
-            <h2>performer</h2>
-            {performer && <p>{JSON.stringify(performer)}</p>}
-            <h2>venue</h2>
-            {venue && <p>{JSON.stringify(venue)}</p>}
+            { !event &&
+                <div>
+                    <Loading/>
+                </div>
+            }
+
+            { event &&
+              <div>
+                  <h1>event</h1>
+                  {event && <p>{JSON.stringify(event)}</p>}
+                  <h2>performer</h2>
+                  {performer && <p>{JSON.stringify(performer)}</p>}
+                  <h2>venue</h2>
+                  {venue && <p>{JSON.stringify(venue)}</p>}
+              </div>
+            }
         </div>
     );
 };
