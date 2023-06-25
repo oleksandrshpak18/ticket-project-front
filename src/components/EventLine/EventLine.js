@@ -17,15 +17,15 @@ const EventLine = ({ev}) => {
     return (
         <div>
             <div className={`${css.eventLine}`}>
-                <p>{new Date(ev.eventDate).toLocaleString('default',
+                <p className={`${css.dateWidth}`}>{new Date(ev.eventDate).toLocaleString('default',
                     {
                         year: "numeric",
                         month: "long",
                         day: "numeric"
                     })}</p>
-                <p>{ev.venue.city}</p>
-                <p>{ev.venue.venueName}</p>
-                <p>
+                <p className={`${css.cityWidth}`}>{ev.venue.city}</p>
+                <p className={`${css.venueWidth}`}>{ev.venue.venueName}</p>
+                <p  className={`${css.timeWidth}`}>
                     {
                         eventTime.toLocaleString([],
                             {
@@ -35,8 +35,10 @@ const EventLine = ({ev}) => {
                             })
                     }
                 </p>
+                <p className={`${css.priceWidth}`}>
                 {minPrice !== maxPrice && <p>{minPrice} - {maxPrice} ₴</p>}
                 {minPrice === maxPrice && <p>{minPrice} ₴</p>}
+                </p>
                 <NavLink
                     key={ev.eventId}
                     to={{

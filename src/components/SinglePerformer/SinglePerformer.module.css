@@ -15,8 +15,6 @@
     -webkit-flex-direction: row;
     flex-direction: row;
     align-items: flex-start;
-
-
 }
 
 .performerDisplay p{
@@ -24,15 +22,15 @@
     display: inline-block;
     font-size: 20px;
     margin-right: 50px;
-    /*margin-left: 10px;*/
-    margin-top: -70px;
     letter-spacing: 0.5px;
     margin-block-start: 2em;
     margin-block-end: 2em;
     margin-inline-start: 2px;
     margin-inline-end: 0px;
     line-height: 30px;
-    text-align: justify-all;
+    text-align: start;
+    width: 790px;
+    margin-bottom: 10px;
 
 }
 
@@ -41,10 +39,11 @@
     margin-left: 0px;
     font-weight: 600;
     font-size: 30px;
+    margin-top: 10px;
 }
 .Genres{
     margin-top: -60px;
-    margin-left: 410px;
+    margin-left: 590px;
     font-size: 16px;
 
 }
@@ -52,7 +51,7 @@
     display: inline-block;
     border: 2px solid #73A24E;
     padding: 3px 5px;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-right: 25px;
     border-radius: 2px;
     width: auto;
@@ -65,4 +64,6 @@
     margin-left:80px;
     font-size: 28px;
     margin-bottom: 10px;
+
+
 }

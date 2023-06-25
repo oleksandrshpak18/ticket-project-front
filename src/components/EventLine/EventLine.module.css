@@ -7,7 +7,7 @@
     margin-bottom: 20px;
     height: 60px;
     align-items: center;
-    width: 80%;
+    width: 89%;
     border-left: 6px solid #FBB02D;
 }
 
@@ -29,10 +29,27 @@
 
 .eventLine p, button {
     font-size: 22px;
+    display: flex;
+    margin-left: 30px;
+    margin-right: 35px;
     /*margin: 5px 100px 10px 30px;*/
-    margin: 5px auto 10px 30px;
+    /*margin: 5px auto 10px 30px;*/
 }
-
+.dateWidth{
+    width: 250px;
+}
+.cityWidth{
+    width: 120px;
+}
+.venueWidth{
+    width: 300px;
+}
+.timeWidth{
+    width: 50px;
+}
+.priceWidth{
+    width: 230px;
+}
 .eventLine button:hover {
     background-color: #7ab949;
 }

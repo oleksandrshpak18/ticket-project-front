@@ -81,8 +81,8 @@ const SinglePerformer = () => {
                             </div>
 
                             <p>{performer.description}</p>
-                            {performer.careerBeginYear != null &&
-                                <p>Початок кар'єри: {performer.careerBeginYear}</p>}
+                            {/*{performer.careerBeginYear != null &&*/}
+                            {/*    <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
                         </div>
                     </div>
 
