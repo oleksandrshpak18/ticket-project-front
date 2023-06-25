@@ -22,3 +22,28 @@
     margin: 0 0 auto auto;
 
 }
+
+.button {
+    background-color: #73A24E;
+    border: none;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 1;
+    box-sizing: border-box;
+    width: 130px;
+    height: 35px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 2px gray;
+}
+
+.button:hover {
+    background-color: #7ab949;
+}
+
+.nav {
+    text-decoration: none;
+    color: black;
+}
