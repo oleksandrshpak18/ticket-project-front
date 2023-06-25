@@ -42,7 +42,7 @@ const SingleEvent = () => {
     }
 
     return (
-        <div>
+        <div className={css.container}>
             { !event &&
                 <div>
                     <Loading/>
