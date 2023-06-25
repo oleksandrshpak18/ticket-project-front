@@ -10,7 +10,7 @@ const EventLine = ({ev}) => {
     eventTime.setHours(hours);
     eventTime.setMinutes(minutes)
 
-    const prices = Object.values(ev.ticketPrices.map((x) => x.price));
+    const prices = ev.ticketPrices.map((x) => x.price);
     const minPrice = Math.min(...prices);
     const maxPrice = Math.max(...prices);
 
@@ -36,8 +36,8 @@ const EventLine = ({ev}) => {
                     }
                 </p>
                 <p className={`${css.priceWidth}`}>
-                {minPrice !== maxPrice && <p>{minPrice} - {maxPrice} ₴</p>}
-                {minPrice === maxPrice && <p>{minPrice} ₴</p>}
+                {minPrice !== maxPrice && <span>{minPrice} - {maxPrice} ₴</span>}
+                {minPrice === maxPrice && <span>{minPrice} ₴</span>}
                 </p>
                 <NavLink
                     key={ev.eventId}
