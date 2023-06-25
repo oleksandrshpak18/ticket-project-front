@@ -12,7 +12,7 @@ const markerIcon = new L.Icon({
     iconAnchor:[17,46],
     popupAnchor:[0, -46]
 });
-// const Map = ({address}) => {
+
 const Map = ({address}) => {
     const center = [51.505, -0.09];
     const ZOOM_LEVEL = 13;
