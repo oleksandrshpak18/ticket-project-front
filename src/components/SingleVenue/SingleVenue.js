@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import css from "./SingleVenue.module.css";
-import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
 import {Navigate, useLocation} from "react-router-dom";
+
+import css from "./SingleVenue.module.css";
 import {connections} from "../../data";
-import EventLine from "../EventLine/EventLine";
 import EventBlock from "../EventBlock/EventBlock";
+import {Map} from '../Map/Map'
 
 const SingleVenue = () => {
     const state = useLocation().state
@@ -104,7 +104,7 @@ const SingleVenue = () => {
                             {
                                 !isBillboardDisplayed &&
                                 <div>
-                                    map to be displayed here...
+                                    <Map address={`${venue.city}, ${venue.street} ${venue.buildingNumber}`}/>
                                 </div>
                             }
                         </div>
