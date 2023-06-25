@@ -7,11 +7,12 @@ import {Layout} from "./components/Layout/Layout";
 
 import React from "react";
 import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
-import PerformersPage from "./pages/PerformesPage/PerformersPage";
+import {PerformersPage} from "./pages/PerformesPage/PerformersPage";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import VenuesPage from "./pages/VenuesPage/VenuesPage";
 import {SinglePerformer} from "./components/SinglePerformer/SinglePerformer";
 import SingleVenue from "./components/SingleVenue/SingleVenue";
+import SingleEvent from "./components/SingleEvent/SingleEvent";
 
 
 export default function App() {
@@ -20,6 +21,10 @@ export default function App() {
 
         <Route path={'/'} element={<Layout/>}>
             <Route index element={<EventsPage/>}/>
+            <Route path={'events'}>
+                <Route path={':title'} element={<SingleEvent/>}/>
+            </Route>
+
             <Route path={'performers'}>
                 <Route index element={<PerformersPage/>}/>
                 <Route path={':title'} element={<SinglePerformer/>}/>

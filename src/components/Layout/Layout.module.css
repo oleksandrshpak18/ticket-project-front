@@ -36,3 +36,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+.navLink {
+    color: black;
+    text-decoration: none;
+}

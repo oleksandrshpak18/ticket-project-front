@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import {connections} from "../../data";
+import {NavLink} from "react-router-dom";
+import slugify from 'slugify';
+
 import css from "../../components/Layout/Layout.module.css";
 import EventBlock from "../../components/EventBlock/EventBlock";
-import {connections} from "../../data";
 
 const EventsPage = () => {
     const [events, setEvents] = useState([])
+
     useEffect(() => {
         if(events.length === 0){
             // request data
@@ -22,13 +26,25 @@ const EventsPage = () => {
         }
 
     }, [events])
+
     return (
         <div>
-            <div>placeholder for search / filter</div>
+            <div>
+                placeholder for search / filter
+            </div>
             <div className={`${css.eventBlock}`}>
                 {
                     events.map((elem)=>(
-                        <EventBlock ev={elem} key={elem.eventId}/>
+                        <NavLink
+                            className={`${css.navLink}`}
+                            key={elem.eventId}
+                            to={{
+                                pathname: `events/${slugify(elem.eventTitle, {lower: true})}`,
+                            }}
+                            state={{id: `${elem.eventId}`} }
+                        >
+                            <EventBlock ev={elem}/>
+                        </NavLink>
                     ))
                 }
             </div>

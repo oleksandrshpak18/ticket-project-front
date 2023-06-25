@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import css from "./PerformersPage.module.css";
-
 import {connections} from "../../data";
-import PerformerBlock from "../../components/PerformerBlock/PerformerBlock";
-import {SinglePerformer} from "../../components/SinglePerformer/SinglePerformer";
-import {Link, NavLink} from "react-router-dom";
-
+import {NavLink} from "react-router-dom";
 import slugify from 'slugify';
+
+import css from "./PerformersPage.module.css";
+import PerformerBlock from "../../components/PerformerBlock/PerformerBlock";
 
 const PerformersPage = () => {
     const [performers, setPerformers] = useState([])
@@ -32,30 +30,27 @@ const PerformersPage = () => {
     return (
         <div>
             <div>
-                <div>
-                    placeholder for search / filter
-                </div>
+                placeholder for search / filter
+            </div>
 
-                <div className={`${css.PerformerBlock}`}>
-                    {
-                        performers.map((elem)=>(
-                            <NavLink
-                                key={elem.performerId}
-                                to={{
-                                    pathname: `${slugify(elem.title, {lower: true})}`,
-                                }}
-                                state={{id: `${elem.performerId}`} }
-                            >
-                                <PerformerBlock performer={elem}/>
-                            </NavLink>
+            <div className={`${css.PerformerBlock}`}>
+                {
+                    performers.map((elem)=>(
+                        <NavLink
+                            key={elem.performerId}
+                            to={{
+                                pathname: `${slugify(elem.title, {lower: true})}`,
+                            }}
+                            state={{id: `${elem.performerId}`} }
+                        >
+                            <PerformerBlock performer={elem}/>
+                        </NavLink>
 
-                        ))
-                    }
-                </div>
+                    ))
+                }
             </div>
         </div>
-
     );
 };
 
-export default PerformersPage;
+export {PerformersPage};
