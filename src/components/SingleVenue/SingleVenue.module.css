@@ -7,9 +7,9 @@
 
 }
 
-.left_toggle, .right_toggle {
+.left_toggle, .right_toggle, .middle_toggle {
     margin: 0;
-    width: 50%;
+    width: 33%;
     background-color: #FFFFFF;
     border: 3px solid #FBB02D;
     height: 1.5em;
@@ -17,7 +17,7 @@
     cursor: pointer;
 }
 
-.left_toggle {
+.middle_toggle {
 
 }
 

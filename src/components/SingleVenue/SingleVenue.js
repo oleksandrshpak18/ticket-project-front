@@ -13,6 +13,8 @@ const SingleVenue = () => {
     const [events, setEvents] = useState([])
     const [isEventsLoaded, setIsEventsLoaded] = useState(false)
     const [isBillboardDisplayed, setIsBillboardDisplayed] = useState(true)
+    const [isDescriptionDisplayed, setIsDescriptionDisplayed] = useState(false)
+    const [isMapDisplayed, setIsMapDisplayed] = useState(false)
 
     useEffect(()=>{
         if(state != null) {
@@ -50,7 +52,6 @@ const SingleVenue = () => {
 
     }, [venue])
 
-
     if(!state) {
         return (
             <Navigate to="/venues" replace/>
@@ -72,14 +73,36 @@ const SingleVenue = () => {
 
                     <div className={`${css.info_container}`}>
                         <div className={`${css.toggle_container}`}> {/* toggle switch between tabs*/}
-                            <button className={`${css.left_toggle} ${(isBillboardDisplayed) ? css.active_button : ''}`} onClick={()=>{setIsBillboardDisplayed(true)}}>Billboard</button>
-                            <button className={`${css.right_toggle} ${(!isBillboardDisplayed) ? css.active_button : ''}`} onClick={()=>{setIsBillboardDisplayed(false)}}>Map</button>
+                            <button
+                                className={`${css.left_toggle} ${(isBillboardDisplayed) ? css.active_button : ''}`}
+                                onClick={()=>{
+                                    setIsBillboardDisplayed(true)
+                                    setIsMapDisplayed(false);
+                                    setIsDescriptionDisplayed(false);
+                                }
+                            }>Billboard</button>
+                            <button
+                                className={`${css.middle_toggle} ${(isDescriptionDisplayed) ? css.active_button : ''}`}
+                                onClick={()=>{
+                                    setIsDescriptionDisplayed(true)
+                                    setIsBillboardDisplayed(false);
+                                    setIsMapDisplayed(false);
+                                }
+                            }>Details</button>
+                            <button
+                                className={`${css.right_toggle} ${(isMapDisplayed) ? css.active_button : ''}`}
+                                onClick={()=> {
+                                    setIsMapDisplayed(true);
+                                    setIsBillboardDisplayed(false);
+                                    setIsDescriptionDisplayed(false);
+                                }
+                            }>Map</button>
                         </div>
 
                         {
-                            isBillboardDisplayed &&
-                            <div> {/* block for events in this venue*/}
-                                <p className={``}>List of events</p>
+                            isBillboardDisplayed && //  block for events in this venue
+                            <div>
+                                <h2 className={``}>List of events</h2>
                                 {
                                     events.length === 0 && !isEventsLoaded && <div>
                                         Loading...
@@ -100,14 +123,19 @@ const SingleVenue = () => {
                             </div>
                         }
 
-                        <div> {/*block for map interaction*/}
-                            {
-                                !isBillboardDisplayed &&
-                                <div>
-                                    <Map address={`${venue.city}, ${venue.street} ${venue.buildingNumber}`}/>
-                                </div>
-                            }
-                        </div>
+                        {
+                            isDescriptionDisplayed && // block for description
+                            <div>
+                                {venue.description}
+                            </div>
+                        }
+
+                        {
+                            isMapDisplayed && // block for map interaction
+                            <div>
+                                <Map address={`${venue.city}, ${venue.street} ${venue.buildingNumber}`}/>
+                            </div>
+                        }
                     </div>
                 </div>
             </div> }
