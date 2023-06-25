@@ -12,8 +12,8 @@ const SingleEvent = () => {
     const [performer, setPerformer] = useState(null)
     const [venue, setVenue] = useState(null)
 
-    useEffect(()=>{
-        if(state != null) {
+    useEffect(() => {
+        if (state != null) {
             // request data
             // console.log(`id: ${state.id}`)
             fetch(`${connections.get_event_by_id}${state.id}`)
@@ -28,14 +28,14 @@ const SingleEvent = () => {
         }
     }, [state])
 
-    useEffect(()=>{
-        if(event != null) {
-         setPerformer(event.performer);
-         setVenue(event.venue);
+    useEffect(() => {
+        if (event != null) {
+            setPerformer(event.performer);
+            setVenue(event.venue);
         }
     }, [event])
 
-    if(!state) {
+    if (!state) {
         return (
             <Navigate to="/" replace/>
         );
@@ -43,21 +43,21 @@ const SingleEvent = () => {
 
     return (
         <div className={css.container}>
-            { !event &&
+            {!event &&
                 <div>
                     <Loading/>
                 </div>
             }
 
-            { event &&
-              <div>
-                  <h1>event</h1>
-                  {event && <p>{JSON.stringify(event)}</p>}
-                  <h2>performer</h2>
-                  {performer && <p>{JSON.stringify(performer)}</p>}
-                  <h2>venue</h2>
-                  {venue && <p>{JSON.stringify(venue)}</p>}
-              </div>
+            {event &&
+                <div className={css.flex_container}>
+                    <div className={css.left}>
+                        sdflkjsdf
+                    </div>
+                    <div className={css.right}>
+                        sdfsdfsd
+                    </div>
+                </div>
             }
         </div>
     );

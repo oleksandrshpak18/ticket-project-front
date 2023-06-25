@@ -1,3 +1,30 @@
 .container {
     height: 100%;
+    width: 100%;
+
+}
+
+.flex_container {
+    border: 1px solid black;
+    display: flex;
+    width: 100%;
+
+}
+
+.left, .right {
+
+}
+
+.left {
+    border: 1px solid black;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.right {
+    border: 1px solid black;
+    width: 20%;
+    background-color: #F5F5F5;
+    margin: 0 0 auto auto;
+
 }

@@ -4,7 +4,8 @@
 }
 
 .toggle_container {
-
+    width: 100%;
+    display: flex;
 }
 
 .left_toggle, .right_toggle, .middle_toggle {
