@@ -19,7 +19,7 @@
 
 import React from 'react';
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
-import osm from "./osm-providers";
+import osm from "../../components/Map/osm-providers";
 import L from "leaflet";
 
 import css from "../NotFoundPage/NotFoundPage.module.css";

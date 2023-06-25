@@ -1,6 +1,48 @@
+.container {
+    position: relative;
+    flex-wrap: wrap;
+    margin-top: -40px;
+    margin-left:-10px;
+    margin-right:-10px;
+}
+
+.img{
+    height: 400px;
+    width: 100%;
+}
+
 .info_container {
     width: 80%;
     margin: 10px auto;
+
+
+}
+.imageText{
+    background-color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 75%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: black;
+    width: 370px;
+    height: 35px;
+    align-items: center;
+    padding: 9px 1em 0 2em;
+    text-align: center;
+    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
+}
+.Icon{
+    width: 18px;
+    height: 18px;
+}
+.container p{
+    font-size: 32px;
+    margin-left: 60px ;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
+
 }
 
 .toggle_container {
@@ -16,6 +58,9 @@
     height: 1.5em;
     transition: background-color 0.5s ease-in;
     cursor: pointer;
+    font-size: 22px;
+    justify-content: center;
+    padding:  3px 3px;
 }
 
 .middle_toggle {
@@ -34,4 +79,12 @@
 .navLink {
     color: black;
     text-decoration: none;
+}
+.toggleMargin{
+    margin-top: 20px;
+}
+.DescriptionStyle{
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    text-align: justify;
 }

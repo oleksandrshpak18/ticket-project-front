@@ -13,11 +13,11 @@
     width: 265px;
 }
 .eventBlock{
+    display: inline-block;
     position: relative;
     border: 3px solid #EEEEEE;
-    margin-bottom: 35px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin: 20px 15px 35px;
+
 }
 
 .eventBlock::before {
@@ -60,6 +60,8 @@
     margin-top: 90px;
     margin-left: 0;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlayItems p{

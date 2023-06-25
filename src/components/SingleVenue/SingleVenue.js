@@ -8,7 +8,8 @@ import {Loading} from "../Loading/Loading";
 
 import css from "./SingleVenue.module.css";
 import {connections} from "../../data";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import{faMapPin} from'@fortawesome/free-solid-svg-icons';
 
 const SingleVenue = () => {
     const state = useLocation().state
@@ -74,11 +75,11 @@ const SingleVenue = () => {
             {venue &&
                 <div className={``}>
 
-                    <div className={``}>
-                        <img src={venue.img} alt={`${venue.venueName}`} className={``}/>
-                        <h1>{venue.venueName}</h1>
-                        <div>
-                            {venue.city}, {venue.street} {venue.buildingNumber}
+                    <div className={`${css.container}`}>
+                        <img src={venue.img} alt={`${venue.venueName}`} className={css.img}/>
+                        <p>{venue.venueName}</p>
+                        <div className={`${css.imageText}`} >
+                            <FontAwesomeIcon icon={faMapPin} className={`${css.Icon}`} />  {venue.city}, {venue.street} {venue.buildingNumber}
                         </div>
                     </div>
 
@@ -116,7 +117,7 @@ const SingleVenue = () => {
                         {
                             isBillboardDisplayed && //  block for events in this venue
                             <div>
-                                <h2 className={``}>List of events</h2>
+                                {/*<h2 className={``}>List of events</h2>*/}
                                 {
                                     events.length === 0 && !isEventsLoaded && <div>
                                         <Loading/>
@@ -139,16 +140,16 @@ const SingleVenue = () => {
                                             }}
                                             state={{id: `${elem.eventId}`}}
                                         >
-                                            <EventBlock ev={elem}/>
+                                            <EventBlock   ev={elem}/>
                                         </NavLink>
                                     ))
                                 }
                             </div>
                         }
-
+                        <div className={`${css.toggleMargin}`}>
                         {
                             isDescriptionDisplayed && // block for description
-                            <div>
+                            <div  className={`${css.DescriptionStyle}`}>
                                 {venue.description}
                             </div>
                         }
@@ -159,6 +160,7 @@ const SingleVenue = () => {
                                 <Map address={`${venue.city}, ${venue.street} ${venue.buildingNumber}`}/>
                             </div>
                         }
+                        </div>
                     </div>
                 </div>
             }
