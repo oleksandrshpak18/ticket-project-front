@@ -25,8 +25,11 @@ import L from "leaflet";
 import css from "../NotFoundPage/NotFoundPage.module.css";
 import 'leaflet/dist/leaflet.css'
 
+import icon from '../../data/images/marker.png'
+
 const markerIcon = new L.Icon({
-    iconUrl: require("D:\\3.2\\практика\\TicketProjectFront\\src\\pages\\images\\marker.png"),
+    // iconUrl: require("D:\\3.2\\практика\\TicketProjectFront\\src\\pages\\images\\marker.png"),
+    iconUrl: icon,
 
     iconSize: [35,30],
     iconAnchor:[17,46],
