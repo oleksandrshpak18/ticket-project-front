@@ -98,7 +98,12 @@ const SingleEvent = () => {
                                 className={`${css.nav}`}
                                 key={event.eventId}
                                 to={`/events/${slugify(event.eventTitle, {lower: true})}/booking`}
-                                state={{id: `${event.eventId}`}}
+                                state={
+                                    {
+                                        id: `${event.eventId}`,
+                                        ev: event
+                                    }
+                                }
 
                             >
                                 <button className={css.button}>Buy a ticket</button>

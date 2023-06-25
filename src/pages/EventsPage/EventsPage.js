@@ -17,7 +17,7 @@ const EventsPage = () => {
                 fetch(connections.get_all_events)
                     .then(response => response.json())
                     .then((json) => {
-                        console.log(json)
+                        // console.log(json)
                         setEvents(json)
                     })
 

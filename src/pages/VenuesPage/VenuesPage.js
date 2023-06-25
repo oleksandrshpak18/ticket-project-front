@@ -17,7 +17,7 @@ const VenuesPage = () => {
                 fetch(connections.get_all_venues)
                     .then(response => response.json())
                     .then((json) => {
-                        console.log(json)
+                        // console.log(json)
                         setVenues(json)
                     })
 

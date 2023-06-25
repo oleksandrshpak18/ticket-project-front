@@ -74,7 +74,7 @@ const SinglePerformer = () => {
                             <div className={`${css.Genres}`}>
                                 {
                                     performer.performerGenres.map((elem) => (
-                                        <span className={`${css.word}`}>{elem}</span>
+                                        <span className={`${css.word}`} key={performer.performerGenres.indexOf(elem)}>{elem}</span>
                                     ))
                                 }
                                 <div className={`${css.word}`}>{performer.performerType}</div>

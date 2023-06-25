@@ -53,9 +53,11 @@ const Booking = () => {
 
                             to={`/events/${slugify(event.eventTitle, { lower: true })}/booking/checkout`}
                             state={
-                                {id: `${event.eventId}`}
+                                {
+                                    id: `${event.eventId}`,
+                                    ev: event
+                                }
                             }
-
                         >
                             <button className={css.button}>Confirm</button>
                         </NavLink>

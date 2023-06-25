@@ -17,7 +17,7 @@ const PerformersPage = () => {
                 fetch(connections.get_all_performers)
                     .then(response => response.json())
                     .then((json) => {
-                        console.log(json)
+                        // console.log(json)
                         setPerformers(json)
                     })
 
