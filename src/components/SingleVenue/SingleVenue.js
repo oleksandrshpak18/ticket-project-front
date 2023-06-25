@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Navigate, useLocation} from "react-router-dom";
+import {Navigate, NavLink, useLocation} from "react-router-dom";
 
 import css from "./SingleVenue.module.css";
 import {connections} from "../../data";
 import EventBlock from "../EventBlock/EventBlock";
 import {Map} from '../Map/Map'
+import slugify from "slugify";
 
 const SingleVenue = () => {
     const state = useLocation().state
@@ -117,7 +118,16 @@ const SingleVenue = () => {
 
                                 {events &&
                                     events.map((elem)=>(
-                                        <EventBlock ev={elem} key={elem.eventId}/>
+                                        <NavLink
+                                            className={`${css.navLink}`}
+                                            key={elem.eventId}
+                                            to={{
+                                                pathname: `/events/${slugify(elem.eventTitle, {lower: true})}`,
+                                            }}
+                                            state={{id: `${elem.eventId}`} }
+                                        >
+                                            <EventBlock ev={elem}/>
+                                        </NavLink>
                                     ))
                                 }
                             </div>

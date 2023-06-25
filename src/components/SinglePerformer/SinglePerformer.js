@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import css from "./SinglePerformer.module.css";
-import EventLine from "../../components/EventLine/EventLine";
+import {EventLine} from "../../components/EventLine/EventLine";
 import {connections} from "../../data";
 import {Navigate, useLocation, useNavigate, useParams} from "react-router-dom";
 

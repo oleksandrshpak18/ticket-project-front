@@ -1,20 +1,20 @@
 .eventLine {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-left: 80px;
     margin-right: 110px;
     background-color: #F0F0F0;
     margin-bottom: 20px;
     height: 60px;
     align-items: center;
-    width: 1390px;
+    width: 80%;
     border-left: 6px solid #FBB02D;
 }
 
-.eventLine button{
+.eventLine button {
     background-color: #73A24E;
     border: none;
-    color:white;
+    color: white;
     font-weight: 400;
     cursor: pointer;
     display: inline-block;
@@ -27,8 +27,12 @@
     box-shadow: 3px 3px 2px gray;
 }
 
-.eventLine p, button{
+.eventLine p, button {
     font-size: 22px;
-    margin: 5px 122px 10px 30px;
+    /*margin: 5px 100px 10px 30px;*/
+    margin: 5px auto 10px 30px;
+}
 
+.eventLine button:hover {
+    background-color: #7ab949;
 }
