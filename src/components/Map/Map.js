@@ -20,7 +20,7 @@ const Map = ({address}) => {
         <MapContainer
             center={center}
             zoom={ZOOM_LEVEL}
-            style={{ width: '1190px', height: '500px' }} >>
+            style={{ width: '100%', height: '500px' }} >>
             <TileLayer url={osm.maptiler.url} attribution={osm.maptiler.attribution}/>
             <Marker position={[51.505, -0.09]} icon={markerIcon}>
                 <Popup>

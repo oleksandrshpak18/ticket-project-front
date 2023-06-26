@@ -13,6 +13,11 @@
     border: 1px solid black;
     width: 70%;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .right {
@@ -46,4 +51,37 @@
 .nav {
     text-decoration: none;
     color: black;
+}
+
+.left * {
+    margin: 5px;
+}
+
+.stage {
+    width: 50%;
+    height: 100px;
+    border: 1px solid gray;
+}
+
+.fan {
+    width: 80%;
+    height: 200px;
+    border: 1px solid green;
+}
+
+.zones_container {
+    flex-direction: column;
+}
+
+.flex_row {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.row {
+
+}
+
+.seat {
+    border: 1px solid dodgerblue;
 }
