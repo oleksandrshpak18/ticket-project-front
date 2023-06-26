@@ -1,0 +1,105 @@
+.container{
+    /*border: 2px solid #73A24E;*/
+}
+.container label {
+    font-size: 18px;
+    margin-left: 4px;
+}
+.container h3 {
+    font-size: 24px;
+    margin-left: 4px;
+}
+.contactsContainer{
+    display: flex;
+    margin-left: 110px;
+    /*border: 2px solid  black;*/
+    margin-bottom: 15px;
+}
+.deliveryContainer{
+    display: flex;
+    margin-left: 110px;
+    /*border: 2px solid  black;*/
+    margin-bottom: 15px;
+}
+.paymentContainer{
+    display: flex;
+    margin-left: 110px;
+    /*border: 2px solid  black;*/
+}
+.deliveryBlock{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+.contactsBlock{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-top: 15px;
+}
+.paymentBlock{
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+}
+.formContainer {
+    margin-left: 45px;
+    margin-top: 22px;
+}
+.Icon{
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+.formField {
+    margin-bottom: 15px;
+}
+.formContainer input {
+    width: 100%;
+    height: 22px;
+    padding: 5px;
+    border: 2px solid #CBCBCB;
+}
+.checkboxD{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 45px;
+}
+.checkboxD input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #CBCBCB;
+    background-color: #7EB14B;
+    padding: 4px;
+}
+.checkboxP{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+.checkboxP input {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #CBCBCB;
+    background-color: #7EB14B;
+    padding: 4px;
+}
+.paymentInfo{
+    /*border: 2px solid  black;*/
+    width: 10%;
+    margin-left: 305px;
+    margin-top: -5px;
+    color:#7F7F7F;
+}
