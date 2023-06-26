@@ -1,27 +1,15 @@
 .flex_container {
-    border: 1px solid black;
-    display: flex;
-    width: 100%;
+    /*border: 1px solid black;*/
+    /*display: flex;*/
+    /*width: 100%;*/
 
 }
+/*.left {*/
+/*    border: 1px solid black;*/
+/*    width: 60%;*/
+/*    !*margin: 0 auto;*!*/
+/*}*/
 
-
-.left {
-    border: 1px solid black;
-    width: 70%;
-    margin: 0 auto;
-}
-
-.right {
-    border: 2px solid #73A24E;
-    width: 20%;
-    margin: 0 0 auto auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px 0 20px 0;
-    line-height: 2rem;
-}
 
 .button {
     background-color: #73A24E;
@@ -50,4 +38,61 @@
 
 .icon {
     margin-right: 5px ;
+}
+.imageContainer{
+    width: auto;
+    height: 460px;
+    margin-top: 15px;
+    margin-left: 40px;
+    margin-right: 55px;
+}
+.eventDisplay{
+    display: flex;
+
+}
+.word {
+    display: inline-block;
+    border: 2px solid #73A24E;
+    padding: 3px 5px;
+    margin-top: 0;
+    margin-right: 25px;
+    border-radius: 2px;
+    width: auto;
+    height: 15px;
+    text-align: center;
+    line-height: 1;;
+}
+.eventDescription{
+    /*border: 2px solid #73A24E;*/
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    width: 750px;
+}
+.container{
+    display: flex;
+    /*width: 100%;*/
+    /*border: 2px solid #73A24E;*/
+    /*margin-right: 60px;*/
+}
+.right {
+    border: 2px solid #73A24E;
+    width: 250px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+    height: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0 20px 0;
+    line-height: 2rem;
+    font-size: 20px;
+    /*width: 50%;*/
+
+}
+.eventType{
+    margin-top: -50px;
+    margin-left: 590px;
+    font-size: 16px;
+
 }

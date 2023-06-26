@@ -64,7 +64,7 @@ const Booking = () => {
                                         <div >
                                             {Array.from({ length: elem.rowsCount }).map((_, rowIndex) => (
                                                 <div key={rowIndex} className={css.row} className={`${css.flex_container} ${css.flex_row}`}>
-                                                    <h4>row: {rowIndex + 1}</h4>
+                                                    {/*<h4>row: {rowIndex + 1}</h4>*/}
                                                     {Array.from({ length: elem.seatsPerRowCount }).map((_, seatIndex) => (
                                                         <div key={seatIndex} className={css.seat}>{seatIndex + 1}</div>
                                                     ))}
@@ -78,8 +78,6 @@ const Booking = () => {
                     </div>
                     <div className={css.right}>
                         sdfsdfsd
-
-
                         <NavLink
                             className={`${css.nav}`}
 

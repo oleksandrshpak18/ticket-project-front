@@ -65,8 +65,10 @@ const Header = () => {
                         }}
                         state={{id: `${event.venue.venueId}`}}
                     >
+                        <div className={`${css.fVenue}`}>
                         <FontAwesomeIcon icon={faMapPin} className={css.icon}/>
                         {event.venue.venueName}
+                        </div>
                     </NavLink>
                 </div>
 

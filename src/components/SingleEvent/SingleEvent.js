@@ -51,66 +51,63 @@ const SingleEvent = () => {
             </div>}
 
             {event && <div>
-                <div>
-                    <img src={event.img} alt={event.eventTitle}/>
-                    <h1>{event.eventTitle}</h1>
-                    <span>{event.eventType}</span>
+                <div className={`${css.eventDisplay}`}>
+                    <img src={event.img} alt={event.eventTitle} className={`${css.imageContainer}`}/>
+                    <div>
+                        <h1>{event.eventTitle}</h1>
+                        <div className={`${css.eventType}`}>
+                            <span className={`${css.word}`}>{event.eventType}</span>
+                        </div>
+                        <div className={`${css.container}`} >
+                                <div >
+                                    <div className={`${css.eventDescription}`}>
+                                        <h3>About event</h3>
+                                        <p>{(event.eventDescription === null) ? 'no description yet' : event.eventDescription}</p>
+                                    </div>
+                                </div>
+
+                            <div className={css.right}>
+                                <div>
+                                    <p>
+                                        <FontAwesomeIcon icon={faCalendarDays} className={css.icon}/>
+                                        {new Date(event.eventDate).toLocaleString('default', {
+                                            year: "numeric", month: "long", day: "numeric"
+                                        })}
+                                    </p>
+                                    <p>
+                                        <NavLink
+                                            className={`${css.nav}`}
+                                            to={{
+                                                pathname: `/venues/${slugify(event.venue.venueName, {lower: true})}`,
+                                            }}
+                                            state={{id: `${event.venue.venueId}`}}
+                                        >
+                                            <FontAwesomeIcon icon={faMapPin} className={css.icon}/>
+                                            {event.venue.venueName}
+                                        </NavLink>
+                                    </p>
+                                    <p>
+                                        <FontAwesomeIcon icon={faTag} rotation={90} className={css.icon}/>
+                                        {minPrice !== maxPrice && <span>{minPrice} - {maxPrice} ₴</span>}
+                                        {minPrice === maxPrice && <span>{minPrice} ₴</span>}
+                                    </p>
+                                    <NavLink
+                                        className={`${css.nav}`}
+                                        key={event.eventId}
+                                        to={`/events/${slugify(event.eventTitle, {lower: true})}/booking`}
+                                        state={
+                                            {
+                                                id: `${event.eventId}`,
+                                                ev: event
+                                            }
+                                        }
+                                    >
+                                        <button className={css.button}>Buy a ticket</button>
+                                    </NavLink>
+                                </div>
+                               </div>
+                        </div>
                 </div>
-
-                <div className={css.flex_container}>
-                    <div className={css.left}>
-                        <div>
-                            <h2>About event</h2>
-                            <p>{(event.eventDescription === null) ? 'no description yet' : event.eventDescription}</p>
-                        </div>
-                    </div>
-                    <div className={css.right}>
-                        {/****
-                         font size is too small here
-
-                         */}
-                        <div>
-                            <p>
-                                <FontAwesomeIcon icon={faCalendarDays} className={css.icon}/>
-                                {new Date(event.eventDate).toLocaleString('default', {
-                                    year: "numeric", month: "long", day: "numeric"
-                                })}
-                            </p>
-                            <p>
-                                <NavLink
-                                    className={`${css.nav}`}
-                                    to={{
-                                        pathname: `/venues/${slugify(event.venue.venueName, {lower: true})}`,
-                                    }}
-                                    state={{id: `${event.venue.venueId}`}}
-                                >
-                                    <FontAwesomeIcon icon={faMapPin} className={css.icon}/>
-                                    {event.venue.venueName}
-                                </NavLink>
-                            </p>
-
-                            <p>
-                                <FontAwesomeIcon icon={faTag} rotation={90} className={css.icon}/>
-                                {minPrice !== maxPrice && <span>{minPrice} - {maxPrice} ₴</span>}
-                                {minPrice === maxPrice && <span>{minPrice} ₴</span>}
-                            </p>
-                            <NavLink
-                                className={`${css.nav}`}
-                                key={event.eventId}
-                                to={`/events/${slugify(event.eventTitle, {lower: true})}/booking`}
-                                state={
-                                    {
-                                        id: `${event.eventId}`,
-                                        ev: event
-                                    }
-                                }
-
-                            >
-                                <button className={css.button}>Buy a ticket</button>
-                            </NavLink>
-                        </div>
-                    </div>
-
                 </div>
             </div>}
         </div>);

@@ -2,6 +2,8 @@
     border: 1px solid black;
     display: flex;
     width: 100%;
+    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
+
 
 }
 
@@ -21,14 +23,15 @@
 }
 
 .right {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     width: 20%;
+
     background-color: #F5F5F5;
-    margin: 0 0 auto auto;
+    /*margin: 0 0 auto auto;*/
 
 }
 
-.button {
+.button{
     background-color: #73A24E;
     border: none;
     color: white;
@@ -49,6 +52,7 @@
 }
 
 .nav {
+
     text-decoration: none;
     color: black;
 }
@@ -58,15 +62,32 @@
 }
 
 .stage {
+    display: flex;
     width: 50%;
     height: 100px;
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
+    background-color: #676767;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 22px;
 }
 
 .fan {
+    display: flex;
     width: 80%;
     height: 200px;
-    border: 1px solid green;
+    font-size: 30px;
+    /*border: 1px solid green;*/
+    text-align: center;
+    border-radius: 4px;
+    background-color: #73A24E;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
 }
 
 .zones_container {
@@ -83,5 +104,12 @@
 }
 
 .seat {
-    border: 1px solid dodgerblue;
+    display: flex;
+    width: 70px;
+    height: 70px;
+    background-color: #F3DE2C;
+    /*text-align: center;*/
+    justify-content: center;
+    align-items: center;
+    /*border: 1px solid dodgerblue;*/
 }
