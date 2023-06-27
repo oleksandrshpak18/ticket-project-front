@@ -8,7 +8,18 @@
 
 
 }
-
+.center {
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    width: 80%;
+    margin: 0 auto;
+}
+.events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .performerDisplay{
     display: flex;
     display: -webkit-flex;
@@ -60,9 +71,11 @@
 }
 
 .name{
-    margin-left:80px;
+    /*margin-left:80px;*/
     font-size: 28px;
     margin-bottom: 10px;
-
+    /*align-self: flex-start;*/
+    width: 80%;
+    border-top: 5px solid #FBB02D;
 
 }

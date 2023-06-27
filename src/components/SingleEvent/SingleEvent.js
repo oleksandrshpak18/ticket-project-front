@@ -50,7 +50,7 @@ const SingleEvent = () => {
                 <Loading/>
             </div>}
 
-            {event && <div>
+            {event && <div className={`${css.center}`}>
                 <div className={`${css.eventDisplay}`}>
                     <img src={event.img} alt={event.eventTitle} className={`${css.imageContainer}`}/>
                     <div>
