@@ -1,0 +1,85 @@
+.flex_container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
+}
+
+.right {
+    width: 20%;
+    background-color: #F5F5F5;
+    height: 100%;
+}
+.button{
+    background-color: #73A24E;
+    border: none;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 1;
+    box-sizing: border-box;
+    width: 130px;
+    height: 35px;
+    border-radius: 4px;
+    box-shadow: 3px 3px 2px gray;
+}
+
+.button:hover {
+    background-color: #7ab949;
+}
+
+.button:disabled {
+    cursor: default;
+    background-color: #7F7F7F;
+}
+
+.chosenTicketsBlock {
+    height: 500px;
+    width: 100%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 auto;
+}
+
+.price_container {
+    min-height: 70px;
+    margin: 0 10px;
+    display: flex;
+}
+
+.textToLeft {
+    width: 70%;
+}
+
+.textToRight {
+    text-align: right;
+    width: 30%;
+}
+
+.navContainer {
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: inherit;
+}
+
+.left {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.block {
+    display: block;
+}

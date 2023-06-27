@@ -1,10 +1,8 @@
 .flex_container {
-    border: 1px solid black;
     display: flex;
     width: 100%;
+    height: 100%;
     font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
-
-
 }
 
 .left, .right {
@@ -12,7 +10,6 @@
 }
 
 .left {
-    border: 1px solid black;
     width: 70%;
     margin: 0 auto;
     display: flex;
@@ -23,12 +20,9 @@
 }
 
 .right {
-    /*border: 1px solid black;*/
     width: 20%;
-
     background-color: #F5F5F5;
-    /*margin: 0 0 auto auto;*/
-
+    height: 100%;
 }
 
 .button{
@@ -51,10 +45,15 @@
     background-color: #7ab949;
 }
 
-.nav {
+.button:disabled {
+    cursor: default;
+    background-color: #7F7F7F;
+}
 
+.nav {
     text-decoration: none;
     color: black;
+    align-self: center;
 }
 
 .left * {
@@ -65,7 +64,6 @@
     display: flex;
     width: 50%;
     height: 100px;
-    /*border: 1px solid gray;*/
     background-color: #676767;
     color:#FFFFFF;
     text-transform: uppercase;
@@ -75,19 +73,34 @@
     font-size: 22px;
 }
 
-.fan {
+.fan, .vip_fan {
     display: flex;
-    width: 80%;
-    height: 200px;
-    font-size: 30px;
-    /*border: 1px solid green;*/
-    text-align: center;
-    border-radius: 4px;
-    background-color: #73A24E;
-    color:#FFFFFF;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
+    color:#FFFFFF;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 4px;
+}
+
+.vip_fan, .fan, .seat {
+    transition: filter 0.3s;
+    cursor: pointer;
+}
+
+.vip_fan:hover, .fan:hover, .seat:hover {
+    filter: brightness(120%);
+}
+
+.fan {
+    width: 80%;
+    height: 150px;
+}
+
+.vip_fan {
+    width: 100%;
+    height: 75px;
 }
 
 .zones_container {
@@ -105,11 +118,71 @@
 
 .seat {
     display: flex;
-    width: 70px;
-    height: 70px;
+    width: 20px;
+    height: 20px;
     background-color: #F3DE2C;
-    /*text-align: center;*/
     justify-content: center;
     align-items: center;
-    /*border: 1px solid dodgerblue;*/
+}
+
+.Fan_zone { background-color: #73A24E; }
+.VIP { background-color: #eada47 }
+.Balcony { background-color: #cc47ea; }
+.Parterre { background-color: #476dea; }
+.VIP_fan { background-color: #f55e0f; }
+
+.Sector_1, .Sector_2, .Sector_3, .Sector_4, .Sector_5,
+.Sector_6, .Sector_7, .Sector_8, .Sector_9, .Sector_10  {
+    background-color: #eaa947;
+}
+
+.chosenTicketsBlock {
+    height: 500px;
+    width: 100%;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 auto;
+}
+
+.price_container {
+    min-height: 70px;
+    margin: 0 10px;
+    display: flex;
+}
+
+.textToLeft {
+    width: 70%;
+}
+
+.textToRight {
+    text-align: right;
+    width: 30%;
+}
+
+.navContainer {
+    height: 60px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: inherit;
+}
+
+.block {
+    display: block;
+}
+
+.unavailable_seat {
+    pointer-events: none;
+    background-color: #7F7F7F;
+}
+
+.chosen {
+    background-color: #00ff07;
+    cursor: auto;
+    pointer-events: none;
 }

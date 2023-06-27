@@ -1,0 +1,40 @@
+.container {
+    width: 95%;
+    height: 60px;
+    background-color: #fff;
+    margin: 5px 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.flex {
+ display: flex;
+
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    width: 30%;
+    text-align: right;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.Fan_zone { border-left: 5px solid #73A24E; }
+.VIP { border-left: 5px solid #eada47 }
+.Balcony { border-left: 5px solid #cc47ea; }
+.Parterre { border-left: 5px solid #476dea; }
+.VIP_fan { border-left: 5px solid #f55e0f; }
+
+.Sector_1, .Sector_2, .Sector_3, .Sector_4, .Sector_5,
+.Sector_6, .Sector_7, .Sector_8, .Sector_9, .Sector_10  {
+    border-left: 5px solid #eaa947;
+}
