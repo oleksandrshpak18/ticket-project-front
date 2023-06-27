@@ -58,7 +58,8 @@ const Checkout = () => {
                     }
                     {
                         chosenSeats.length !== 0 &&
-                        <div className={`${css.fullWidth}`}>
+                        <div className={`${css.fullWidth}`}
+                        >
                             {
                                 chosenSeats.map((elem, index) => (
                                     <OneTicket key={index} elem={elem} deletingFunction={removeFromChosenSeatsByIndex} index={index}/>

@@ -64,29 +64,30 @@ const SinglePerformer = () => {
             }
 
             {performer &&
-                <div >
+                <div>
+                    <div className={`${css.center}`}>
+                        <div className={`${css.performerDisplay}`}>
+                            <img src={performer.img} alt={`${performer.title}`} className={`${css.imageContainer}`}/>
 
-                    <div className={`${css.performerDisplay}`}>
-                        <img src={performer.img} alt={`${performer.title}`} className={`${css.imageContainer}`}/>
-
-                        <div >
-                            <h2>{performer.title}</h2>
-                            <div className={`${css.Genres}`}>
-                                {
-                                    performer.performerGenres.map((elem) => (
-                                        <span className={`${css.word}`} key={performer.performerGenres.indexOf(elem)}>{elem}</span>
-                                    ))
-                                }
-                                <div className={`${css.word}`}>{performer.performerType}</div>
+                            <div>
+                                <h2>{performer.title}</h2>
+                                <div className={`${css.Genres}`}>
+                                    {
+                                        performer.performerGenres.map((elem) => (
+                                            <span className={`${css.word}`}
+                                                  key={performer.performerGenres.indexOf(elem)}>{elem}</span>
+                                        ))
+                                    }
+                                    <div className={`${css.word}`}>{performer.performerType}</div>
+                                </div>
+                                <p>{performer.description}</p>
+                                {/*{performer.careerBeginYear != null &&*/}
+                                {/*    <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
                             </div>
-                            <p>{performer.description}</p>
-                            {/*{performer.careerBeginYear != null &&*/}
-                            {/*    <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
                         </div>
                     </div>
-
-                    <div>
-                        <p className={`${css.name}`}>List of events</p>
+                    <div className={`${css.events}`}>
+                        <p className={`${css.name}`}>{/*List of events*/}</p>
                         {
                             events.length === 0 && !isEventsLoaded && <div>
                                 <Loading/>
