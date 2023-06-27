@@ -7,7 +7,8 @@ const connections = {
     get_all_events: 'https://localhost:7020/api/Event/get-all',
     get_events_by_performer_id: 'https://localhost:7020/api/Event/get-by-performer-id?id=',
     get_events_by_venue_id: 'https://localhost:7020/api/Event/get-by-venue-id?id=',
-    get_event_by_id: 'https://localhost:7020/api/Event/get-by-id?id='
+    get_event_by_id: 'https://localhost:7020/api/Event/get-by-id?id=',
+    get_sold_tickets_by_event_id: 'https://localhost:7020/api/Ticket/get-sold-by-event-id?id='
 }
 
 export {connections}

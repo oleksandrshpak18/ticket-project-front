@@ -14,6 +14,7 @@ const Booking = () => {
     const [event, setEvent] = useState(null)
     const [chosenSeats, setChosenSeats] = useState(new Array())
     const [countedPrice, setCountedPrice] = useState(0)
+    const [soldTickets, setSoldTickets] = useState(new Array())
 
     useEffect(() => {
         if (state != null) {
@@ -34,8 +35,21 @@ const Booking = () => {
     useEffect(()=> {
         if (event) {
             console.log(event);
+            fetch(`${connections.get_sold_tickets_by_event_id}${event.eventId}`)
+                .then(response => response.json())
+                .then((json) => {
+                    // console.log(json)
+                    setSoldTickets(json) // set data
+                })
+                .catch((err) => {
+                    console.warn(err.message);
+                })
         }
     }, [event])
+
+    useEffect(()=>{
+        console.log(soldTickets)
+    }, [soldTickets])
 
     useEffect(() => {
         const res = chosenSeats
@@ -149,7 +163,7 @@ const Booking = () => {
                                                         {Array.from({ length: elem.seatsPerRowCount }).map((_, seatIndex) => (
                                                             <div
                                                                 key={seatIndex}
-                                                                className={`${css.seat} ${css[elem.seatType.replace(/[^a-zA-Z0-9]/g, '_')]}`}
+                                                                className={`${css.seat} ${css[elem.seatType.replace(/[^a-zA-Z0-9]/g, '_')]} ${soldTickets.some((x) => x.seatType === elem.seatType && x.rowNumber === rowIndex + 1 && x.seatNumber === seatIndex + 1) ? css.unavailable_seat : ''}`}
                                                                 data-seat-type={elem.seatType}
                                                                 data-row-number={rowIndex + 1}
                                                                 data-seat-number={seatIndex + 1}
