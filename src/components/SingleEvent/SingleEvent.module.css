@@ -48,7 +48,12 @@
 }
 .eventDisplay{
     display: flex;
+}
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .word {
     display: inline-block;
