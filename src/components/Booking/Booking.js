@@ -53,7 +53,7 @@ const Booking = () => {
 
     useEffect(() => {
         const res = chosenSeats
-            .map((x) => parseInt(x.price))
+            .map((x) => parseInt(x.ticketPrice))
             .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         setCountedPrice(res);
 
@@ -91,9 +91,32 @@ const Booking = () => {
                 seatType: seatType,
                 rowNumber: rowNumber,
                 seatNumber: seatNumber,
-                price: price
+                ticketPrice: price,
+                venueId: event.venue.venueId,
+                eventId: event.eventId
             }
-            setChosenSeats([...chosenSeats, chosenSeat])
+
+            fetch(`${connections.post_is_ticket_available}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(chosenSeat),
+            })
+
+                .then((json) => {
+                    // Handle the response data
+                    if(json.ok) {
+                        console.log(json);
+                        setChosenSeats([...chosenSeats, chosenSeat])
+                    } else {
+                        alert('The ticket is unavailable now. Reload the page and try again, please.')
+                    }
+                })
+                .catch((err) => {
+                    // Handle any errors
+                    console.warn(err.message);
+                })
         }
     }
 

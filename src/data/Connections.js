@@ -8,7 +8,9 @@ const connections = {
     get_events_by_performer_id: 'https://localhost:7020/api/Event/get-by-performer-id?id=',
     get_events_by_venue_id: 'https://localhost:7020/api/Event/get-by-venue-id?id=',
     get_event_by_id: 'https://localhost:7020/api/Event/get-by-id?id=',
-    get_sold_tickets_by_event_id: 'https://localhost:7020/api/Ticket/get-sold-by-event-id?id='
+    get_sold_tickets_by_event_id: 'https://localhost:7020/api/Ticket/get-sold-by-event-id?id=',
+    post_is_ticket_available: 'https://localhost:7020/api/Ticket/is-ticket-availble',
+    post_add_order: 'https://localhost:7020/api/Order'
 }
 
 export {connections}
