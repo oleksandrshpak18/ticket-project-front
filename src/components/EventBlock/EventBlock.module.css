@@ -18,6 +18,7 @@
     border: 3px solid #EEEEEE;
     margin: 20px 15px 35px;
 
+ /*width: 80%;*/
 }
 
 .eventBlock::before {

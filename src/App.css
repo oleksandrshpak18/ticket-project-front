@@ -2,12 +2,14 @@
     --header-color: #FBB02D;
     height: 100vh;
 }
-html,
+html{
+    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
+}
 body {
     height: 100%;
     margin: 0;
 
 }
-* {
-    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
-}
+/** {*/
+/*    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;*/
+/*}*/
