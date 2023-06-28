@@ -7,6 +7,7 @@ import {connections} from "../../data";
 import css from './Booking.module.css'
 import {OneTicket} from "../OneTicket/OneTicket";
 
+
 const Booking = () => {
     const state = useLocation().state
 
@@ -14,6 +15,8 @@ const Booking = () => {
     const [chosenSeats, setChosenSeats] = useState(new Array())
     const [countedPrice, setCountedPrice] = useState(0)
     const [soldTickets, setSoldTickets] = useState(new Array())
+    const [maxFanZoneSoldSeatNumber, setMaxFanZoneSoldSeatNumber] = useState(0)
+    const [maxVipFanZoneSoldSeatNumber, setMaxVipFanZoneSoldSeatNumber] = useState(0)
 
     useEffect(() => {
         if (state != null) {
@@ -47,8 +50,34 @@ const Booking = () => {
     }, [event])
 
     useEffect(()=>{
-        console.log(soldTickets)
-    }, [soldTickets])
+        console.log('console.log(soldTickets)')
+        const vipFanSeatNumbers = chosenSeats
+            .filter((x) => x.seatType === 'VIP-fan')
+            .map((x) => x.seatNumber);
+        const soldVipFanSeatNumbers = soldTickets
+            .filter((x) => x.seatType === 'VIP-fan')
+            .map((x) => x.seatNumber);
+
+        const combinedVipFanSeatNumbers = vipFanSeatNumbers.concat(soldVipFanSeatNumbers);
+        const maxVipFanSeatNumber = combinedVipFanSeatNumbers.length > 0
+            ? Math.max(...combinedVipFanSeatNumbers)
+            : 0;
+
+        const fanSeatNumbers = chosenSeats
+            .filter((x) => x.seatType === 'Fan-zone')
+            .map((x) => x.seatNumber);
+        const soldFanSeatNumbers = soldTickets
+            .filter((x) => x.seatType === 'Fan-zone')
+            .map((x) => x.seatNumber);
+        const combinedSeatNumbers = [...fanSeatNumbers, ...soldFanSeatNumbers];
+        const maxFanSeatNumber = combinedSeatNumbers.length > 0
+            ? Math.max(...combinedSeatNumbers)
+            : 0;
+
+        setMaxFanZoneSoldSeatNumber(maxFanSeatNumber)
+        setMaxVipFanZoneSoldSeatNumber((maxVipFanSeatNumber))
+
+    }, [soldTickets, chosenSeats])
 
     useEffect(() => {
         const res = chosenSeats
@@ -95,27 +124,33 @@ const Booking = () => {
                 eventId: event.eventId
             }
 
-            fetch(`${connections.post_is_ticket_available}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(chosenSeat),
-            })
+            if (seatNumber > event.venue.venueZones.find((x)=> x.seatType === seatType).seatsPerRowCount) {
+                e.target.classList.add(`${css.unavailable_seat}`);
+                alert('No more available seats for tha category. Please, choose another seats.')
+            }
+            else {
+                fetch(`${connections.post_is_ticket_available}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(chosenSeat),
+                })
 
-                .then((json) => {
-                    // Handle the response data
-                    if(json.ok) {
-                        console.log(json);
-                        setChosenSeats([...chosenSeats, chosenSeat])
-                    } else {
-                        alert('The ticket is unavailable now. Reload the page and try again, please.')
-                    }
-                })
-                .catch((err) => {
-                    // Handle any errors
-                    console.warn(err.message);
-                })
+                    .then((json) => {
+                        // Handle the response data
+                        if(json.ok) {
+                            console.log(json);
+                            setChosenSeats([...chosenSeats, chosenSeat])
+                        } else {
+                            alert('The ticket is unavailable now. Reload the page and try again, please.')
+                        }
+                    })
+                    .catch((err) => {
+                        // Handle any errors
+                        console.warn(err.message);
+                    })
+            }
         }
     }
 
@@ -151,7 +186,7 @@ const Booking = () => {
                                 className={`${css.vip_fan} ${css.VIP_fan}`}
                                 data-seat-type={`VIP-fan`}
                                 data-row-number={1}
-                                data-seat-number={1}
+                                data-seat-number={maxVipFanZoneSoldSeatNumber + 1}
                                 data-price={event.ticketPrices.find(x => x.seatType === 'VIP-fan')?.price}
                                 onClick={onSeatClick}
                             >
@@ -164,7 +199,7 @@ const Booking = () => {
                                 className={`${css.fan} ${css.Fan_zone}`}
                                 data-seat-type={`Fan-zone`}
                                 data-row-number={1}
-                                data-seat-number={1}
+                                data-seat-number={maxFanZoneSoldSeatNumber + 1}
                                 data-price={event.ticketPrices.find(x => x.seatType === 'Fan-zone')?.price}
                                 onClick={onSeatClick}
                             >
