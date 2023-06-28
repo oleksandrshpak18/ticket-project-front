@@ -18,8 +18,9 @@ const OneTicket = ({elem, deletingFunction, index}) => {
                 </div>
             </div>
             <div className={css.flex}>
-                {/*<div className={css.left}>{(elem.seatType !== ('Fan-zone' || 'VIP-fan')) ? `Row ${elem.rowNumber}, Seat ${elem.seatNumber}` : ''}</div>*/}
-                <div className={css.left}>{`Row ${elem.rowNumber}, Seat ${elem.seatNumber}`}</div>
+                <div className={css.left}>
+                    {elem.seatType !== 'Fan-zone' && elem.seatType !== 'VIP-fan' ? `Row ${elem.rowNumber}, Seat ${elem.seatNumber}` : ''}
+                </div>
                 <div className={css.right} >{elem.ticketPrice} ₴</div>
             </div>
         </div>
