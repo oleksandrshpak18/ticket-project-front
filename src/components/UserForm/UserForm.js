@@ -14,14 +14,14 @@ const UserForm = ({clicked, setter}) => {
         name: '',
         surname: '',
         email: '',
-        phoneNumber: ''
+        phoneNumber: '380',
     };
 
     const validationSchema = Yup.object({
         name: Yup.string().min(2).max(50).required('Name is a required field'),
         surname: Yup.string().min(2).max(50).required('Surname is a required field'),
         email: Yup.string().email('Invalid email address').min(2).max(320).required('Email is a required field'),
-        phoneNumber: Yup.string().matches(/^[0-9]{12}$/, 'Invalid phone number').required('Phone number is required')
+        phoneNumber: Yup.string().length(12).matches(/^[0-9]{12}$/, 'Invalid phone number').required('Phone number is required')
     });
 
     const onSubmit = (values) => {
@@ -55,9 +55,9 @@ const UserForm = ({clicked, setter}) => {
                             <div className={`${css.formField}`}>
                                 <input
                                     type="text"
-                                    id="phone"
-                                    // defaultValue="380"
+                                    id="phoneNumber"
                                     placeholder="Your phone number"
+                                    maxLength={12}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.phoneNumber}
@@ -71,6 +71,7 @@ const UserForm = ({clicked, setter}) => {
                                     type="text"
                                     id="name"
                                     placeholder="Your name"
+                                    maxLength={50}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.name}
@@ -84,6 +85,7 @@ const UserForm = ({clicked, setter}) => {
                                     type="text"
                                     id="surname"
                                     placeholder="Your surname"
+                                    maxLength={50}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.surname}
@@ -97,6 +99,7 @@ const UserForm = ({clicked, setter}) => {
                                     type="email"
                                     id="email"
                                     placeholder="Your email address"
+                                    maxLength={320}
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.email}
