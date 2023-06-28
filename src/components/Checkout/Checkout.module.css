@@ -72,7 +72,7 @@
 }
 
 .left {
-    width: 70%;
+    width: 30%;
     margin: 0 auto;
 }
 
@@ -82,4 +82,38 @@
 
 .block {
     display: block;
+}
+
+.resultColumn {
+    display: flex;
+    width: 40%;
+    /*border: 1px solid pink ;*/
+}
+
+.success, .failed {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
+.success{
+    border-left: 5px solid #73A24E;
+}
+
+.failed {
+    border-left: 5px solid red;
+}
+
+.success_icon {
+    color: #73A24E;
+    margin: 10px;
+    height: 50px;
+}
+
+.failed_icon {
+    color: red;
+    margin: 10px;
+    height: 50px;
 }

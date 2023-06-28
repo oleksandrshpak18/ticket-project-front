@@ -7,6 +7,9 @@ import css from './Checkout.module.css'
 import {UserForm} from "../UserForm/UserForm";
 import {OneTicket} from "../OneTicket/OneTicket";
 import {connections} from "../../data";
+import {Loading} from "../Loading/Loading";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleCheck} from "@fortawesome/free-solid-svg-icons";
 
 const Checkout = () => {
     const state = useLocation().state
@@ -14,6 +17,8 @@ const Checkout = () => {
     const [event, setEvent] = useState(null)
     const [chosenSeats, setChosenSeats] = useState(new Array())
     const [countedPrice, setCountedPrice] = useState(0)
+    const [isLoading, setIsLoading] = useState(false)
+    const [requestResult, setRequestResult] = useState(null)
     const [customer1, setCustomer1] = useState({
         name: "Sofia",
         surname: "Shpak",
@@ -49,6 +54,8 @@ const Checkout = () => {
     }
 
     const handleClick = () => {
+        setRequestResult(null)
+        setIsLoading(true);
         const order = { customer: customer1, tickets: chosenSeats }
         console.log(JSON.stringify(order))
         console.log(order);
@@ -60,6 +67,8 @@ const Checkout = () => {
             body: stringify(order),
         })
             .then(response => {
+                setIsLoading(false)
+                setRequestResult(response)
                 if (response.ok) {
                     return response.json();
                 } else {
@@ -87,7 +96,29 @@ const Checkout = () => {
             <div className={`${css.left}`}>
                 <UserForm setter={setCustomer1}/>
             </div>
+            <div className={`${css.resultColumn}`}>
+                {isLoading && <Loading/>}
+                {requestResult &&
+                <div>
+                    {requestResult.status === 200 &&
+                        <div className={`${css.success}`}>
+                            <FontAwesomeIcon size={`2xl`} icon={faCircleCheck} className={`${css.success_icon}`}/>
+                            <div>
+                                You have successfully purchased the tickets. Your tickets will be sent to your email soon.
+                            </div>
+                        </div>
+                    }
 
+                    {requestResult.status !== 200 &&
+                        <div className={`${css.failed}`}>
+                            <FontAwesomeIcon icon={faCircleCheck} className={`${css.failed_icon}`}/>
+                            <div>
+                                The error occurred while placing your order. Try again or change the specified seats, please.
+                            </div>
+                        </div>
+                    }
+                </div>}
+            </div>
             <div className={css.right}>
                 <div className={`${css.chosenTicketsBlock} ${(chosenSeats.length !== 0) ? css.block : ''}`}>
                     {
@@ -100,6 +131,7 @@ const Checkout = () => {
                         chosenSeats.length !== 0 &&
                         <div className={`${css.fullWidth}`}
                         >
+
                             {
                                 chosenSeats.map((elem, index) => (
                                     <OneTicket key={index} elem={elem} deletingFunction={removeFromChosenSeatsByIndex} index={index}/>
