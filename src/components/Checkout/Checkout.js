@@ -49,6 +49,10 @@ const Checkout = () => {
         setChosenSeats(updatedArray);
     }
 
+    useEffect(()=>{
+        handleClick();
+    }, [customer1])
+
     const handleClick = () => {
         setClicked(!clicked)
         if(customer1 !== null) {

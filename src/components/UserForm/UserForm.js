@@ -27,6 +27,7 @@ const UserForm = ({clicked, setter}) => {
     const onSubmit = (values) => {
         // Perform form submission logic using values
         console.log(values);
+        setter(values);
     };
 
     const formik = useFormik({
