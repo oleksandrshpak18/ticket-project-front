@@ -69,7 +69,7 @@ const SinglePerformer = () => {
                         <div className={`${css.performerDisplay}`}>
                             <img src={performer.img} alt={`${performer.title}`} className={`${css.imageContainer}`}/>
 
-                            <div>
+                            <div className={`${css.right}`}>
                                 <h2>{performer.title}</h2>
                                 <div className={`${css.Genres}`}>
                                     {
@@ -81,8 +81,6 @@ const SinglePerformer = () => {
                                     <div className={`${css.word}`}>{performer.performerType}</div>
                                 </div>
                                 <p>{performer.description}</p>
-                                {/*{performer.careerBeginYear != null &&*/}
-                                {/*    <p>Початок кар'єри: {performer.careerBeginYear}</p>}*/}
                             </div>
                         </div>
                     </div>
