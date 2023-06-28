@@ -1,11 +1,44 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from './UserForm.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faAddressBook, faTruck, faWallet} from '@fortawesome/free-solid-svg-icons';
 import {NavLink} from "react-router-dom";
 import slugify from "slugify";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-const UserForm = ({setter}) => {
+
+const UserForm = ({clicked, setter}) => {
+
+    const initialValues = {
+        name: '',
+        surname: '',
+        email: '',
+        phoneNumber: ''
+    };
+
+    const validationSchema = Yup.object({
+        name: Yup.string().min(2).max(50).required('Name is a required field'),
+        surname: Yup.string().min(2).max(50).required('Surname is a required field'),
+        email: Yup.string().email('Invalid email address').min(2).max(320).required('Email is a required field'),
+        phoneNumber: Yup.string().matches(/^[0-9]{12}$/, 'Invalid phone number').required('Phone number is required')
+    });
+
+    const onSubmit = (values) => {
+        // Perform form submission logic using values
+        console.log(values);
+    };
+
+    const formik = useFormik({
+        initialValues,
+        validationSchema,
+        onSubmit,
+    });
+
+    useEffect(()=>{
+        console.log('clicked!')
+        formik.handleSubmit()
+    }, [clicked])
 
     return (
         <div className={`${css.container}`}>
@@ -23,30 +56,54 @@ const UserForm = ({setter}) => {
                                 <input
                                     type="text"
                                     id="phone"
-                                    defaultValue="+380"
+                                    // defaultValue="380"
                                     placeholder="Your phone number"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.phoneNumber}
                                 />
+                                {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+                                    <div>{formik.errors.phoneNumber}</div>
+                                )}
                             </div>
                             <div className={`${css.formField}`}>
                                 <input
                                     type="text"
                                     id="name"
                                     placeholder="Your name"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.name}
                                 />
+                                {formik.touched.name && formik.errors.name && (
+                                    <div>{formik.errors.name}</div>
+                                )}
                             </div>
                             <div className={`${css.formField}`}>
                                 <input
                                     type="text"
                                     id="surname"
                                     placeholder="Your surname"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.surname}
                                 />
+                                {formik.touched.surname && formik.errors.surname && (
+                                    <div>{formik.errors.surname}</div>
+                                )}
                             </div >
                             <div className={`${css.formField}`}>
                                 <input
                                     type="email"
                                     id="email"
                                     placeholder="Your email address"
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.email}
                                 />
+                                {formik.touched.email && formik.errors.email && (
+                                    <div>{formik.errors.email}</div>
+                                )}
                             </div>
                         </form>
                 </div>

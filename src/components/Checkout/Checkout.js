@@ -19,12 +19,8 @@ const Checkout = () => {
     const [countedPrice, setCountedPrice] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
     const [requestResult, setRequestResult] = useState(null)
-    const [customer1, setCustomer1] = useState({
-        name: "Sofia",
-        surname: "Shpak",
-        email: "honey@gmail.com",
-        phoneNumber: "i love you",
-    })
+    const [customer1, setCustomer1] = useState(null)
+    const [clicked, setClicked] = useState(false)
 
     useEffect(()=>{
         console.log(customer1);
@@ -54,36 +50,39 @@ const Checkout = () => {
     }
 
     const handleClick = () => {
-        setRequestResult(null)
-        setIsLoading(true);
-        const order = { customer: customer1, tickets: chosenSeats }
-        console.log(JSON.stringify(order))
-        console.log(order);
-        fetch(`${connections.post_add_order}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: stringify(order),
-        })
-            .then(response => {
-                setIsLoading(false)
-                setRequestResult(response)
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Error occurred');
-                }
+        setClicked(!clicked)
+        if(customer1 !== null) {
+            setRequestResult(null)
+            setIsLoading(true);
+            const order = { customer: customer1, tickets: chosenSeats }
+            console.log(JSON.stringify(order))
+            console.log(order);
+            fetch(`${connections.post_add_order}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: stringify(order),
             })
-            .then((json) => {
-                // Handle the response data
-                console.log('success');
-                console.log(json);
-            })
-            .catch((err) => {
-                // Handle any errors
-                console.warn(err.message);
-            });
+                .then(response => {
+                    setIsLoading(false)
+                    setRequestResult(response)
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Error occurred');
+                    }
+                })
+                .then((json) => {
+                    // Handle the response data
+                    console.log('success');
+                    console.log(json);
+                })
+                .catch((err) => {
+                    // Handle any errors
+                    console.warn(err.message);
+                });
+        }
     };
 
 
@@ -94,7 +93,7 @@ const Checkout = () => {
     return (
         <div className={`${css.flex_container}`}>
             <div className={`${css.left}`}>
-                <UserForm setter={setCustomer1}/>
+                <UserForm clicked={clicked} setter={setCustomer1}/>
             </div>
             <div className={`${css.resultColumn}`}>
                 {isLoading && <Loading/>}
@@ -154,7 +153,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className={css.navContainer}>
-                        <button onClick={handleClick} disabled={chosenSeats.length===0} className={css.button}>Purchase</button>
+                        <button type={'submit'} onClick={handleClick} disabled={chosenSeats.length===0} className={css.button}>Purchase</button>
 
                 </div>
             </div>
