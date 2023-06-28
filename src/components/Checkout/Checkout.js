@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import stringify from 'json-stringify-pretty-compact';
+import {Navigate, NavLink, useLocation} from "react-router-dom";
+import slugify from "slugify";
 
 import css from './Checkout.module.css'
 import {UserForm} from "../UserForm/UserForm";
 import {OneTicket} from "../OneTicket/OneTicket";
-import {Navigate, NavLink, useLocation} from "react-router-dom";
-import slugify from "slugify";
 import {connections} from "../../data";
 
 const Checkout = () => {
@@ -13,6 +14,16 @@ const Checkout = () => {
     const [event, setEvent] = useState(null)
     const [chosenSeats, setChosenSeats] = useState(new Array())
     const [countedPrice, setCountedPrice] = useState(0)
+    const [customer1, setCustomer1] = useState({
+        name: "Sofia",
+        surname: "Shpak",
+        email: "honey@gmail.com",
+        phoneNumber: "i love you",
+    })
+
+    useEffect(()=>{
+        console.log(customer1);
+    },[customer1])
 
     useEffect(() => {
         if (state != null) {
@@ -27,7 +38,7 @@ const Checkout = () => {
 
     useEffect(() => {
         const res = chosenSeats
-            .map((x) => parseInt(x.price))
+            .map((x) => parseInt(x.ticketPrice))
             .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         setCountedPrice(res);
     }, [chosenSeats]);
@@ -37,6 +48,35 @@ const Checkout = () => {
         setChosenSeats(updatedArray);
     }
 
+    const handleClick = () => {
+        const order = { customer: customer1, tickets: chosenSeats }
+        console.log(JSON.stringify(order))
+        console.log(order);
+        fetch(`${connections.post_add_order}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: stringify(order),
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error occurred');
+                }
+            })
+            .then((json) => {
+                // Handle the response data
+                console.log('success');
+                console.log(json);
+            })
+            .catch((err) => {
+                // Handle any errors
+                console.warn(err.message);
+            });
+    };
+
 
     if (!state || !state.chosenSeats || (state.chosenSeats && event && chosenSeats.length === 0)) {
         return (<Navigate to="/" replace/>);
@@ -45,7 +85,7 @@ const Checkout = () => {
     return (
         <div className={`${css.flex_container}`}>
             <div className={`${css.left}`}>
-                <UserForm/>
+                <UserForm setter={setCustomer1}/>
             </div>
 
             <div className={css.right}>
@@ -82,7 +122,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className={css.navContainer}>
-                        <button disabled={chosenSeats.length===0} className={css.button}>Purchase</button>
+                        <button onClick={handleClick} disabled={chosenSeats.length===0} className={css.button}>Purchase</button>
 
                 </div>
             </div>

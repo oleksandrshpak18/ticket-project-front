@@ -5,16 +5,9 @@ import {faAddressBook, faTruck, faWallet} from '@fortawesome/free-solid-svg-icon
 import {NavLink} from "react-router-dom";
 import slugify from "slugify";
 
-const UserForm = () => {
+const UserForm = ({setter}) => {
 
     return (
-        // <div className={css.r}>
-        //     <p>Контакти</p>
-        //     <p>Доставка</p>
-        //     <p>Оплата</p>
-        //
-        //
-        // </div>
         <div className={`${css.container}`}>
             <div className={`${css.contactsContainer}`}>
                 <div className={`${css.contactsBlock}`}>

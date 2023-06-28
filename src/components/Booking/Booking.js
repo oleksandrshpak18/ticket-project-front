@@ -5,7 +5,6 @@ import {Navigate, NavLink, useLocation} from "react-router-dom";
 import {Loading} from "../Loading/Loading";
 import {connections} from "../../data";
 import css from './Booking.module.css'
-import {logDOM} from "@testing-library/react";
 import {OneTicket} from "../OneTicket/OneTicket";
 
 const Booking = () => {
@@ -65,8 +64,8 @@ const Booking = () => {
         for (const seat of seatsArray) {
             const isChosen = isThisSeatChosen(
                 seat.getAttribute('data-seat-type'),
-                seat.getAttribute('data-row-number'),
-                seat.getAttribute('data-seat-number')
+                parseInt(seat.getAttribute('data-row-number')),
+                parseInt(seat.getAttribute('data-seat-number'))
             );
             if (isChosen) {
                 seat.classList.add(chosenClass);
@@ -89,9 +88,9 @@ const Booking = () => {
             console.log(classes)
             const chosenSeat = {
                 seatType: seatType,
-                rowNumber: rowNumber,
-                seatNumber: seatNumber,
-                ticketPrice: price,
+                rowNumber: parseInt(rowNumber),
+                seatNumber: parseInt(seatNumber),
+                ticketPrice: parseInt(price),
                 venueId: event.venue.venueId,
                 eventId: event.eventId
             }
