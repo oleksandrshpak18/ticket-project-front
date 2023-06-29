@@ -86,9 +86,10 @@ const EventsPage = () => {
             const filteredItemsSet = new Set();
 
             events.forEach(item => {
-                const genreMatch = selectedGenres.length === 0 || selectedGenres.some(genre => item.performer.performerGenres.includes(genre.value));
-                const eventTypeMatch = selectedEventTypes.length === 0 || selectedEventTypes.some(type => item.eventType.includes(type.value));
-                const performerTypeMatch = selectedPerformerTypes.length === 0 || selectedPerformerTypes.some(type => item.performer.performerType === type.value);
+                // const genreMatch = selectedGenres.length === 0 || selectedGenres.some(genre => item.performer.performerGenres.includes(genre.value));
+                const genreMatch = selectedGenres.some(genre => item.performer.performerGenres.includes(genre.value));
+                const eventTypeMatch = selectedEventTypes.some(type => item.eventType.includes(type.value));
+                const performerTypeMatch = selectedPerformerTypes.some(type => item.performer.performerType === type.value);
 
                 if (genreMatch || eventTypeMatch || performerTypeMatch) {
                     filteredItemsSet.add(item);
@@ -96,7 +97,8 @@ const EventsPage = () => {
             });
 
             const filteredItems = Array.from(filteredItemsSet);
-            setFilteredEvents(filteredItems);
+            setFilteredEvents((filteredItems.length === 0) ? events : filteredItems)
+            // setFilteredEvents(filteredItems);
         }
     }, [events, selectedEventTypes, selectedPerformerTypes, selectedGenres]);
 
