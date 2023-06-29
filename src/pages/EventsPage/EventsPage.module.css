@@ -22,18 +22,5 @@
 
 .select {
     width: 300px;
-    height: 30px;
-    /*max-width: 300px;*/
-    /*max-height: 30px;*/
-    /*overflow-x: auto;*/
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
-    cursor: pointer;
-    z-index: 2;
-    /*transition: height 0.3s;*/
-}
 
-.select:focus {
-    /*height: auto;*/
 }
