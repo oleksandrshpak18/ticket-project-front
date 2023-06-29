@@ -31,10 +31,6 @@ const PerformersPage = () => {
     return (
         <div>
             <div>
-                placeholder for search / filter
-            </div>
-
-            <div>
                 { performers.length === 0 &&
                     <div>
                         <Loading/>

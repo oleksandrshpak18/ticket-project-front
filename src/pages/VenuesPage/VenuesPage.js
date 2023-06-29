@@ -31,10 +31,6 @@ const VenuesPage = () => {
     return (
         <div>
             <div>
-                placeholder for search / filter
-            </div>
-
-            <div>
                 {
                     venues.length === 0 &&
                     <div>

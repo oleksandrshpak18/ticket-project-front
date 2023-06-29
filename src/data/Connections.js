@@ -10,7 +10,10 @@ const connections = {
     get_event_by_id: 'https://localhost:7020/api/Event/get-by-id?id=',
     get_sold_tickets_by_event_id: 'https://localhost:7020/api/Ticket/get-sold-by-event-id?id=',
     post_is_ticket_available: 'https://localhost:7020/api/Ticket/is-ticket-availble',
-    post_add_order: 'https://localhost:7020/api/Order'
+    post_add_order: 'https://localhost:7020/api/Order',
+    get_event_types: 'https://localhost:7020/api/EventType',
+    get_genres: 'https://localhost:7020/api/Genre',
+    get_performer_types: 'https://localhost:7020/api/PerformerType'
 }
 
 export {connections}
