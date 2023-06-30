@@ -157,7 +157,8 @@ const SingleVenue = () => {
                         {
                             isMapDisplayed && // block for map interaction
                             <div>
-                                <Map address={`${venue.city}, ${venue.street} ${venue.buildingNumber}`}/>
+                                <Map address={`${venue.buildingNumber} ${venue.street}, ${venue.city}`}/>
+                                {/*<Map address={`6 Southwark St, London`}/>*/}
                             </div>
                         }
                         </div>
