@@ -10,15 +10,15 @@
 }
 .eventBlock img {
     height: 340px;
-    width: 265px;
+    /*width: 265px;*/
+    width: 100%;
 }
 .eventBlock{
     display: inline-block;
     position: relative;
     border: 3px solid #EEEEEE;
     margin: 20px 15px 35px;
-
- /*width: 80%;*/
+    width: 300px;
 }
 
 .eventBlock::before {

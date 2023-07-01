@@ -15,6 +15,7 @@ import SingleVenue from "./components/SingleVenue/SingleVenue";
 import SingleEvent from "./components/SingleEvent/SingleEvent";
 import {Booking} from "./components/Booking/Booking";
 import {Checkout} from "./components/Checkout/Checkout";
+import './App.css'
 
 
 export default function App() {

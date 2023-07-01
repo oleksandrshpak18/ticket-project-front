@@ -2,18 +2,18 @@
     --header-color: #FBB02D;
     height: 100vh;
     max-width: 100%;
-    overflow-x: hidden;
 }
 html{
     font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
 }
 body {
+    background-color: #FFFFFF;
     height: 100%;
     margin: 0;
-
 }
 
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    /*margin: 0;*/
 }
