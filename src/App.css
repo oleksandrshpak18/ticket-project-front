@@ -1,6 +1,8 @@
 :root {
     --header-color: #FBB02D;
     height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 html{
     font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;
@@ -10,6 +12,8 @@ body {
     margin: 0;
 
 }
-/** {*/
-/*    font-family: robotoregular,Roboto,Arial,Helvetica,sans-serif;*/
-/*}*/
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}

@@ -103,3 +103,9 @@
     margin-top: -5px;
     color:#7F7F7F;
 }
+
+.customError {
+    margin-top: 10px;
+    color: red;
+    font-size: 15px;
+}

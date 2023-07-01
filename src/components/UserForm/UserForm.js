@@ -64,7 +64,7 @@ const UserForm = ({clicked, setter}) => {
                                     value={formik.values.phoneNumber}
                                 />
                                 {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-                                    <div>{formik.errors.phoneNumber}</div>
+                                    <div className={`${css.customError}`}>{formik.errors.phoneNumber}</div>
                                 )}
                             </div>
                             <div className={`${css.formField}`}>
@@ -78,7 +78,7 @@ const UserForm = ({clicked, setter}) => {
                                     value={formik.values.name}
                                 />
                                 {formik.touched.name && formik.errors.name && (
-                                    <div>{formik.errors.name}</div>
+                                    <div className={`${css.customError}`}>{formik.errors.name}</div>
                                 )}
                             </div>
                             <div className={`${css.formField}`}>
@@ -92,7 +92,7 @@ const UserForm = ({clicked, setter}) => {
                                     value={formik.values.surname}
                                 />
                                 {formik.touched.surname && formik.errors.surname && (
-                                    <div>{formik.errors.surname}</div>
+                                    <div className={`${css.customError}`}>{formik.errors.surname}</div>
                                 )}
                             </div >
                             <div className={`${css.formField}`}>
@@ -106,7 +106,7 @@ const UserForm = ({clicked, setter}) => {
                                     value={formik.values.email}
                                 />
                                 {formik.touched.email && formik.errors.email && (
-                                    <div>{formik.errors.email}</div>
+                                    <div className={`${css.customError}`}>{formik.errors.email}</div>
                                 )}
                             </div>
                         </form>
