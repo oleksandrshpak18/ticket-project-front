@@ -110,7 +110,7 @@ const EventsPage = () => {
                 <div className={`${myCss.flex} ${myCss.item}`}>
                     <div className={`${myCss.col}`}>
                         <div><FontAwesomeIcon className={`${myCss.icon}`} icon={faMasksTheater} size={`2xl`}/></div>
-                        <div>Event type</div>
+
                     </div>
                     <div>
                         <Select
@@ -130,7 +130,7 @@ const EventsPage = () => {
                 <div className={`${myCss.flex} ${myCss.item}`}>
                     <div className={`${myCss.col}`}>
                         <div><FontAwesomeIcon className={`${myCss.icon}`} icon={faPerson}  size={`2xl`}/></div>
-                        <div>Performer type</div>
+
                     </div>
                     <div>
                         <Select
@@ -151,7 +151,7 @@ const EventsPage = () => {
                 <div className={`${myCss.flex} ${myCss.item}`}>
                     <div className={`${myCss.col}`}>
                         <div><FontAwesomeIcon className={`${myCss.icon}`} icon={faGuitar}  size={`2xl`}/></div>
-                        <div>Genre</div>
+
                     </div>
                     <div>
                         <Select
